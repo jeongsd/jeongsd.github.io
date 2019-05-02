@@ -37,6 +37,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'commercialToolkit',
+        path: `${__dirname}/content/commercialToolkit`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: 'config',
         path: `${__dirname}/config`,
       },

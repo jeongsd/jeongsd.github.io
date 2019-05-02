@@ -5,176 +5,82 @@ import styled from 'styled-components'
 import { animated, useSpring, config } from 'react-spring'
 import Layout from '../components/layout'
 import GridItem from '../components/grid-item'
-import SEO from '../components/SEO'
+import CommercialToolkitsList from '../components/CommercialToolkitsList'
+import { IndexQuery } from '../generated/graphql'
 import { ChildImageSharp } from '../types'
 
 type PageProps = {
-  data: {
-    firstProject: {
-      title: string
-      slug: string
-      cover: ChildImageSharp
-    }
-    threeProjects: {
-      edges: {
-        node: {
-          title: string
-          slug: string
-          cover: ChildImageSharp
-        }
-      }[]
-    }
-    aboutUs: ChildImageSharp
-    instagram: ChildImageSharp
-  }
+  data: IndexQuery
 }
 
-const Area = styled(animated.div)`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 35vw 40vw 25vw;
-  grid-template-areas:
-    'first-project about-us about-us'
-    'three-projects three-projects three-projects'
-    'instagram instagram instagram';
-
-  @media (max-width: ${props => props.theme.breakpoints[3]}) {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 35vw 30vw 30vw 25vw;
-
-    grid-template-areas:
-      'first-project first-project about-us about-us'
-      'three-projects three-projects three-projects three-projects'
-      'three-projects three-projects three-projects three-projects'
-      'instagram instagram instagram instagram';
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 38vw);
-
-    grid-template-areas:
-      'first-project about-us'
-      'three-projects three-projects'
-      'three-projects three-projects'
-      'three-projects three-projects'
-      'instagram instagram';
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints[0]}) {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 50vw);
-
-    grid-template-areas:
-      'first-project'
-      'about-us'
-      'three-projects'
-      'three-projects'
-      'three-projects'
-      'instagram';
-  }
+const Main = styled.div`
+  max-width: 1012px;
+  width: 100%;
+  margin: auto;
+  display: flex;
 `
 
-const FirstProject = styled(GridItem)`
-  grid-area: first-project;
-`
-
-const AboutUs = styled(GridItem)`
-  grid-area: about-us;
-`
-
-const ThreeProjects = styled.div`
-  grid-area: three-projects;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  @media (max-width: ${props => props.theme.breakpoints[1]}) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-  }
-`
-
-const Instagram = styled(GridItem)`
-  grid-area: instagram;
-`
-
-const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, threeProjects, aboutUs, instagram } }) => {
+const Index: React.FunctionComponent<PageProps> = ({ data }) => {
   const pageAnimation = useSpring({
     config: config.slow,
     from: { opacity: 0 },
     to: { opacity: 1 },
   })
+  console.log(data.commercialToolkits)
 
   return (
-    <Layout>
-      <SEO />
-      <Area style={pageAnimation}>
-        <FirstProject to={firstProject.slug}>
-          <Img fluid={firstProject.cover.childImageSharp.fluid} />
-          <span>{firstProject.title}</span>
-        </FirstProject>
-        <AboutUs to="/about">
-          <Img fluid={aboutUs.childImageSharp.fluid} />
-          <span>About</span>
-        </AboutUs>
-        <ThreeProjects>
-          {threeProjects.edges.map(({ node: project }) => (
-            <GridItem to={project.slug} key={project.slug}>
-              <Img fluid={project.cover.childImageSharp.fluid} />
-              <span>{project.title}</span>
-            </GridItem>
-          ))}
-        </ThreeProjects>
-        <Instagram to="/instagram">
-          <Img fluid={instagram.childImageSharp.fluid} />
-          <span>Instagram</span>
-        </Instagram>
-      </Area>
-    </Layout>
+    <div>
+      <header className="bg-gray-dark text-white p-3 mb-2">
+        <Main className="px-3">
+          <h1 className="h4 f5 text-white text-bold">
+            Jeong Seong Dae · Web Software Enginner
+          </h1>
+        </Main>
+      </header>
+      <div className="container-lg clearfix mt-4">
+        <div className="h-card col-3 float-left pr-3">
+          <div className="py-3">
+            <h1 className="h2 d-block overflow-hidden">
+              Jeong Seong Dae
+            </h1>
+            <h2 className="h3 f3-light text-gray">
+              Full Stack Developer・JavaScript
+            </h2>
+          </div>
+
+          <div className="border-top border-gray-light py-3">
+            <h2 className="mb-1 h4">
+              Commercial Toolkit
+            </h2>
+            <CommercialToolkitsList />
+          </div>
+        </div>
+        <div className="col-9 float-left pl-2">
+          Looks better
+        </div>
+      </div>
+    </div>
   )
 }
 
 export default Index
 
 export const query = graphql`
-  query IndexQuery {
-    firstProject: projectsYaml {
-      title
-      slug
-      cover {
-        childImageSharp {
-          fluid(quality: 95, maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-    threeProjects: allProjectsYaml(limit: 3, skip: 1) {
+  query Index {
+    commercialToolkits: allCommercialToolkitsYaml {
       edges {
         node {
-          title
-          slug
-          cover {
-            childImageSharp {
-              fluid(quality: 95, maxWidth: 1200) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
+          id
+          name
+          name_detail
+          url
+          logo {
+            id
+            relativePath
           }
-        }
-      }
-    }
-    aboutUs: file(sourceInstanceName: { eq: "images" }, name: { eq: "about-us" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1200) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-    instagram: file(sourceInstanceName: { eq: "images" }, name: { eq: "instagram" }) {
-      childImageSharp {
-        fluid(quality: 95, maxWidth: 1920) {
-          ...GatsbyImageSharpFluid_withWebp
+          learnedAt
+          endedAt
+          desc
         }
       }
     }

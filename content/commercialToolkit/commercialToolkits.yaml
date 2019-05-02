@@ -1,0 +1,7 @@
+- name: "React"
+  name_detail: "React - A JavaScript library for building user interfaces"
+  url: "https://reactjs.org/"
+  logo: "./logos/react.svg"
+  learnedAt: "2015-01-11"
+  endedAt: ""
+  desc: "가장 좋아하고 아직까지 잘 사용하고 있는 라이브러리"
