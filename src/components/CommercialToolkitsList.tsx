@@ -5,18 +5,33 @@ import { oc } from 'ts-optchain'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Popover from 'react-awesome-popover'
+import Octicon, { History } from '@githubprimer/octicons-react'
 import { CommercialToolkitsListQuery } from '../generated/graphql'
 import { ChildImageSharp } from '../types'
-import Arrow from './Arrow'
 
 // type PageProps = {
 //   data: IndexQuery
 // }
 
+const Root = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 const LinkWrapper = styled.span`
   /* max-width: 1012px; */
   width: 32px;
   height: 32px;
+`
+const Content = styled.div`
+  max-width: 400px;
+  width: 100%;
+`
+const Item = styled.span`
+  margin-right: 10px;
+  margin-top: 10px;
+`
+const Desc = styled.p`
+  white-space: pre-line;
 `
 
 const CommercialToolkitsList: React.SFC = () => {
@@ -24,28 +39,67 @@ const CommercialToolkitsList: React.SFC = () => {
   const commercialToolkits = oc(data).commercialToolkits.edges([])
 
   return (
-    <div>
+    <Root>
       {commercialToolkits.map(({ node }) => {
         if (!node) return null
         return (
-          <Popover key={node.id} action="click" placement="top">
-            <LinkWrapper >
-              <button href={node.url || undefined}>
-                <img
-                // ref={ref}
-                  className="avatar"
-                  alt={node.name || ''}
-                  src={node.logo && node.logo.publicURL || ''}
-                  width="32"
-                  height="32"
-                />
-              </button>
-            </LinkWrapper>
-            <div>The content</div>
-          </Popover>
+          <Item>
+            <Popover key={node.id} action="hover" placement="top">
+              <LinkWrapper >
+                <a href={node.url || undefined}>
+                  <img
+                    className="avatar"
+                    alt={node.name || ''}
+                    src={node.logo && node.logo.publicURL || ''}
+                    width="36"
+                    height="36"
+                  />
+                </a>
+              </LinkWrapper>
+              <Content>
+                <div>
+                  <div className="d-flex p-4 pb-1">
+                    <div className="">
+                      <img
+                        className="avatar"
+                        alt={node.name || ''}
+                        src={node.logo && node.logo.publicURL || ''}
+                        width="48"
+                        height="48"
+                      />
+                    </div>
+                    <div className="pl-4 m-0">
+                      <p>
+                        <b>{node.name}</b>
+                        {' - '}
+                        <span className="text-gray">
+                          {node.name_detail}
+                        </span>
+                      </p>
+                      <Desc className="text-gray">
+                        {node.desc}
+                      </Desc>
+                    </div>
+                  </div>
+                  <div className="border-top border-gray-light p-4">
+                    {/* <p className="text-gray">
+                      {node.desc}
+                    </p> */}
+                    <div className="mr-3 d-flex flex-items-center">
+                      <Octicon icon={History} ariaLabel="Add new item" />
+                      <small className="f6 text-gray">
+                        Collaboration
+                      </small>
+                    </div>
+
+                  </div>
+                </div>
+              </Content>
+            </Popover>
+          </Item>
         )
       })}
-    </div>
+    </Root>
   )
 }
 
