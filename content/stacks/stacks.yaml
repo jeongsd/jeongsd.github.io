@@ -231,6 +231,15 @@
   desc: "e2e 테스트 할떄 더 이상 Selenium를 사용 안해도 된다. Node.js tool 😝😝"
   type: "commercialToolkit"
 
+- name: "rehooks"
+  name_detail: "React Hooks for Everything"
+  url: "https://rehooks.com/"
+  logo: "./logos/rehooks.png"
+  learnedAt:
+  endedAt: ""
+  desc: "function component를 더 즐겁게 만들수 있게됨"
+  type: "commercialToolkit"
+
 - name: "Github"
   name_detail: "The world's leading software development platform."
   url: "https://github.com/"

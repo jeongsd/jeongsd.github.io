@@ -102,8 +102,6 @@ export const query = graphql`
     name_detail
     url
     logo {
-      id
-      relativePath
       publicURL
     }
     learnedAt

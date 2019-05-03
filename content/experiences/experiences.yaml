@@ -6,6 +6,8 @@
   startedAt: 2014-12-18
   url: "https://ediket.com/"
   pinned: true
+  isJoined: true
+  photo: "./logos/ediket.svg"
   order: 0
 
 - title: "SVWebGL at nVidia with Mr.Doob"
@@ -15,6 +17,7 @@
   startedAt: 2016-09-29
   url: "https://www.meetup.com/WebGL-Developers-Meetup/events/234336450/"
   pinned: true
+  isJoined: false
   order: 1
 
 - title: "블랙라벨 데이팅"
@@ -25,6 +28,7 @@
   startedAt: 2018-10-21
   url: "https://play.google.com/store/apps/details?id=com.blackLabel.blackLabelApp"
   pinned: true
+  isJoined: false
   order: 2
 
 - title: "Apitii"
@@ -35,4 +39,5 @@
   startedAt: 2017-06-04
   url: "https://apitii.com/"
   pinned: true
+  isJoined: false
   order: 3

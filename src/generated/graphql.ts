@@ -346,6 +346,8 @@ export type ExperiencesYaml = Node & {
   startedAt?: Maybe<Scalars["Date"]>;
   url?: Maybe<Scalars["String"]>;
   pinned?: Maybe<Scalars["Boolean"]>;
+  isJoined?: Maybe<Scalars["Boolean"]>;
+  photo?: Maybe<File>;
   order?: Maybe<Scalars["Int"]>;
 };
 
@@ -476,6 +478,80 @@ export enum ExperiencesYamlFieldsEnum {
   StartedAt = "startedAt",
   Url = "url",
   Pinned = "pinned",
+  IsJoined = "isJoined",
+  PhotoId = "photo___id",
+  PhotoParentId = "photo___parent___id",
+  PhotoParentParentId = "photo___parent___parent___id",
+  PhotoParentParentChildren = "photo___parent___parent___children",
+  PhotoParentChildren = "photo___parent___children",
+  PhotoParentChildrenId = "photo___parent___children___id",
+  PhotoParentChildrenChildren = "photo___parent___children___children",
+  PhotoParentInternalContent = "photo___parent___internal___content",
+  PhotoParentInternalContentDigest = "photo___parent___internal___contentDigest",
+  PhotoParentInternalDescription = "photo___parent___internal___description",
+  PhotoParentInternalFieldOwners = "photo___parent___internal___fieldOwners",
+  PhotoParentInternalIgnoreType = "photo___parent___internal___ignoreType",
+  PhotoParentInternalMediaType = "photo___parent___internal___mediaType",
+  PhotoParentInternalOwner = "photo___parent___internal___owner",
+  PhotoParentInternalType = "photo___parent___internal___type",
+  PhotoChildren = "photo___children",
+  PhotoChildrenId = "photo___children___id",
+  PhotoChildrenParentId = "photo___children___parent___id",
+  PhotoChildrenParentChildren = "photo___children___parent___children",
+  PhotoChildrenChildren = "photo___children___children",
+  PhotoChildrenChildrenId = "photo___children___children___id",
+  PhotoChildrenChildrenChildren = "photo___children___children___children",
+  PhotoChildrenInternalContent = "photo___children___internal___content",
+  PhotoChildrenInternalContentDigest = "photo___children___internal___contentDigest",
+  PhotoChildrenInternalDescription = "photo___children___internal___description",
+  PhotoChildrenInternalFieldOwners = "photo___children___internal___fieldOwners",
+  PhotoChildrenInternalIgnoreType = "photo___children___internal___ignoreType",
+  PhotoChildrenInternalMediaType = "photo___children___internal___mediaType",
+  PhotoChildrenInternalOwner = "photo___children___internal___owner",
+  PhotoChildrenInternalType = "photo___children___internal___type",
+  PhotoInternalContent = "photo___internal___content",
+  PhotoInternalContentDigest = "photo___internal___contentDigest",
+  PhotoInternalDescription = "photo___internal___description",
+  PhotoInternalFieldOwners = "photo___internal___fieldOwners",
+  PhotoInternalIgnoreType = "photo___internal___ignoreType",
+  PhotoInternalMediaType = "photo___internal___mediaType",
+  PhotoInternalOwner = "photo___internal___owner",
+  PhotoInternalType = "photo___internal___type",
+  PhotoSourceInstanceName = "photo___sourceInstanceName",
+  PhotoAbsolutePath = "photo___absolutePath",
+  PhotoRelativePath = "photo___relativePath",
+  PhotoExtension = "photo___extension",
+  PhotoSize = "photo___size",
+  PhotoPrettySize = "photo___prettySize",
+  PhotoModifiedTime = "photo___modifiedTime",
+  PhotoAccessTime = "photo___accessTime",
+  PhotoChangeTime = "photo___changeTime",
+  PhotoBirthTime = "photo___birthTime",
+  PhotoRoot = "photo___root",
+  PhotoDir = "photo___dir",
+  PhotoBase = "photo___base",
+  PhotoExt = "photo___ext",
+  PhotoName = "photo___name",
+  PhotoRelativeDirectory = "photo___relativeDirectory",
+  PhotoDev = "photo___dev",
+  PhotoMode = "photo___mode",
+  PhotoNlink = "photo___nlink",
+  PhotoUid = "photo___uid",
+  PhotoGid = "photo___gid",
+  PhotoRdev = "photo___rdev",
+  PhotoBlksize = "photo___blksize",
+  PhotoIno = "photo___ino",
+  PhotoBlocks = "photo___blocks",
+  PhotoAtimeMs = "photo___atimeMs",
+  PhotoMtimeMs = "photo___mtimeMs",
+  PhotoCtimeMs = "photo___ctimeMs",
+  PhotoBirthtimeMs = "photo___birthtimeMs",
+  PhotoAtime = "photo___atime",
+  PhotoMtime = "photo___mtime",
+  PhotoCtime = "photo___ctime",
+  PhotoBirthtime = "photo___birthtime",
+  PhotoUrl = "photo___url",
+  PhotoPublicUrl = "photo___publicURL",
   Order = "order"
 }
 
@@ -492,6 +568,8 @@ export type ExperiencesYamlFilterInput = {
   startedAt?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
   pinned?: Maybe<BooleanQueryOperatorInput>;
+  isJoined?: Maybe<BooleanQueryOperatorInput>;
+  photo?: Maybe<FileFilterInput>;
   order?: Maybe<IntQueryOperatorInput>;
 };
 
@@ -550,11 +628,10 @@ export type File = Node & {
   url?: Maybe<Scalars["String"]>;
   /** Copy file to static directory and return public url to it */
   publicURL?: Maybe<Scalars["String"]>;
-  childrenProjectsYaml?: Maybe<Array<Maybe<ProjectsYaml>>>;
+  childrenStacksYaml?: Maybe<Array<Maybe<StacksYaml>>>;
   childImageSharp?: Maybe<ImageSharp>;
   childrenExperiencesYaml?: Maybe<Array<Maybe<ExperiencesYaml>>>;
   childrenNavigationYaml?: Maybe<Array<Maybe<NavigationYaml>>>;
-  childrenStacksYaml?: Maybe<Array<Maybe<StacksYaml>>>;
 };
 
 export type FileModifiedTimeArgs = {
@@ -1803,244 +1880,6 @@ export enum PotraceTurnPolicy {
   TurnpolicyMajority = "TURNPOLICY_MAJORITY"
 }
 
-export type ProjectsYaml = Node & {
-  id: Scalars["ID"];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  title?: Maybe<Scalars["String"]>;
-  title_detail?: Maybe<Scalars["String"]>;
-  slug?: Maybe<Scalars["String"]>;
-  category?: Maybe<Scalars["String"]>;
-  color?: Maybe<Scalars["String"]>;
-  images?: Maybe<Scalars["String"]>;
-  cover?: Maybe<File>;
-  desc?: Maybe<Scalars["String"]>;
-};
-
-export type ProjectsYamlConnection = {
-  totalCount: Scalars["Int"];
-  edges: Array<ProjectsYamlEdge>;
-  nodes: Array<ProjectsYaml>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars["String"]>;
-  group: Array<ProjectsYamlGroupConnection>;
-};
-
-export type ProjectsYamlConnectionDistinctArgs = {
-  field: ProjectsYamlFieldsEnum;
-};
-
-export type ProjectsYamlConnectionGroupArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  field: ProjectsYamlFieldsEnum;
-};
-
-export type ProjectsYamlEdge = {
-  next?: Maybe<ProjectsYaml>;
-  node: ProjectsYaml;
-  previous?: Maybe<ProjectsYaml>;
-};
-
-export enum ProjectsYamlFieldsEnum {
-  Id = "id",
-  ParentId = "parent___id",
-  ParentParentId = "parent___parent___id",
-  ParentParentParentId = "parent___parent___parent___id",
-  ParentParentParentChildren = "parent___parent___parent___children",
-  ParentParentChildren = "parent___parent___children",
-  ParentParentChildrenId = "parent___parent___children___id",
-  ParentParentChildrenChildren = "parent___parent___children___children",
-  ParentParentInternalContent = "parent___parent___internal___content",
-  ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
-  ParentParentInternalDescription = "parent___parent___internal___description",
-  ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
-  ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
-  ParentParentInternalMediaType = "parent___parent___internal___mediaType",
-  ParentParentInternalOwner = "parent___parent___internal___owner",
-  ParentParentInternalType = "parent___parent___internal___type",
-  ParentChildren = "parent___children",
-  ParentChildrenId = "parent___children___id",
-  ParentChildrenParentId = "parent___children___parent___id",
-  ParentChildrenParentChildren = "parent___children___parent___children",
-  ParentChildrenChildren = "parent___children___children",
-  ParentChildrenChildrenId = "parent___children___children___id",
-  ParentChildrenChildrenChildren = "parent___children___children___children",
-  ParentChildrenInternalContent = "parent___children___internal___content",
-  ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
-  ParentChildrenInternalDescription = "parent___children___internal___description",
-  ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
-  ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
-  ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
-  ParentChildrenInternalOwner = "parent___children___internal___owner",
-  ParentChildrenInternalType = "parent___children___internal___type",
-  ParentInternalContent = "parent___internal___content",
-  ParentInternalContentDigest = "parent___internal___contentDigest",
-  ParentInternalDescription = "parent___internal___description",
-  ParentInternalFieldOwners = "parent___internal___fieldOwners",
-  ParentInternalIgnoreType = "parent___internal___ignoreType",
-  ParentInternalMediaType = "parent___internal___mediaType",
-  ParentInternalOwner = "parent___internal___owner",
-  ParentInternalType = "parent___internal___type",
-  Children = "children",
-  ChildrenId = "children___id",
-  ChildrenParentId = "children___parent___id",
-  ChildrenParentParentId = "children___parent___parent___id",
-  ChildrenParentParentChildren = "children___parent___parent___children",
-  ChildrenParentChildren = "children___parent___children",
-  ChildrenParentChildrenId = "children___parent___children___id",
-  ChildrenParentChildrenChildren = "children___parent___children___children",
-  ChildrenParentInternalContent = "children___parent___internal___content",
-  ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
-  ChildrenParentInternalDescription = "children___parent___internal___description",
-  ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
-  ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
-  ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
-  ChildrenParentInternalOwner = "children___parent___internal___owner",
-  ChildrenParentInternalType = "children___parent___internal___type",
-  ChildrenChildren = "children___children",
-  ChildrenChildrenId = "children___children___id",
-  ChildrenChildrenParentId = "children___children___parent___id",
-  ChildrenChildrenParentChildren = "children___children___parent___children",
-  ChildrenChildrenChildren = "children___children___children",
-  ChildrenChildrenChildrenId = "children___children___children___id",
-  ChildrenChildrenChildrenChildren = "children___children___children___children",
-  ChildrenChildrenInternalContent = "children___children___internal___content",
-  ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
-  ChildrenChildrenInternalDescription = "children___children___internal___description",
-  ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
-  ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
-  ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
-  ChildrenChildrenInternalOwner = "children___children___internal___owner",
-  ChildrenChildrenInternalType = "children___children___internal___type",
-  ChildrenInternalContent = "children___internal___content",
-  ChildrenInternalContentDigest = "children___internal___contentDigest",
-  ChildrenInternalDescription = "children___internal___description",
-  ChildrenInternalFieldOwners = "children___internal___fieldOwners",
-  ChildrenInternalIgnoreType = "children___internal___ignoreType",
-  ChildrenInternalMediaType = "children___internal___mediaType",
-  ChildrenInternalOwner = "children___internal___owner",
-  ChildrenInternalType = "children___internal___type",
-  InternalContent = "internal___content",
-  InternalContentDigest = "internal___contentDigest",
-  InternalDescription = "internal___description",
-  InternalFieldOwners = "internal___fieldOwners",
-  InternalIgnoreType = "internal___ignoreType",
-  InternalMediaType = "internal___mediaType",
-  InternalOwner = "internal___owner",
-  InternalType = "internal___type",
-  Title = "title",
-  TitleDetail = "title_detail",
-  Slug = "slug",
-  Category = "category",
-  Color = "color",
-  Images = "images",
-  CoverId = "cover___id",
-  CoverParentId = "cover___parent___id",
-  CoverParentParentId = "cover___parent___parent___id",
-  CoverParentParentChildren = "cover___parent___parent___children",
-  CoverParentChildren = "cover___parent___children",
-  CoverParentChildrenId = "cover___parent___children___id",
-  CoverParentChildrenChildren = "cover___parent___children___children",
-  CoverParentInternalContent = "cover___parent___internal___content",
-  CoverParentInternalContentDigest = "cover___parent___internal___contentDigest",
-  CoverParentInternalDescription = "cover___parent___internal___description",
-  CoverParentInternalFieldOwners = "cover___parent___internal___fieldOwners",
-  CoverParentInternalIgnoreType = "cover___parent___internal___ignoreType",
-  CoverParentInternalMediaType = "cover___parent___internal___mediaType",
-  CoverParentInternalOwner = "cover___parent___internal___owner",
-  CoverParentInternalType = "cover___parent___internal___type",
-  CoverChildren = "cover___children",
-  CoverChildrenId = "cover___children___id",
-  CoverChildrenParentId = "cover___children___parent___id",
-  CoverChildrenParentChildren = "cover___children___parent___children",
-  CoverChildrenChildren = "cover___children___children",
-  CoverChildrenChildrenId = "cover___children___children___id",
-  CoverChildrenChildrenChildren = "cover___children___children___children",
-  CoverChildrenInternalContent = "cover___children___internal___content",
-  CoverChildrenInternalContentDigest = "cover___children___internal___contentDigest",
-  CoverChildrenInternalDescription = "cover___children___internal___description",
-  CoverChildrenInternalFieldOwners = "cover___children___internal___fieldOwners",
-  CoverChildrenInternalIgnoreType = "cover___children___internal___ignoreType",
-  CoverChildrenInternalMediaType = "cover___children___internal___mediaType",
-  CoverChildrenInternalOwner = "cover___children___internal___owner",
-  CoverChildrenInternalType = "cover___children___internal___type",
-  CoverInternalContent = "cover___internal___content",
-  CoverInternalContentDigest = "cover___internal___contentDigest",
-  CoverInternalDescription = "cover___internal___description",
-  CoverInternalFieldOwners = "cover___internal___fieldOwners",
-  CoverInternalIgnoreType = "cover___internal___ignoreType",
-  CoverInternalMediaType = "cover___internal___mediaType",
-  CoverInternalOwner = "cover___internal___owner",
-  CoverInternalType = "cover___internal___type",
-  CoverSourceInstanceName = "cover___sourceInstanceName",
-  CoverAbsolutePath = "cover___absolutePath",
-  CoverRelativePath = "cover___relativePath",
-  CoverExtension = "cover___extension",
-  CoverSize = "cover___size",
-  CoverPrettySize = "cover___prettySize",
-  CoverModifiedTime = "cover___modifiedTime",
-  CoverAccessTime = "cover___accessTime",
-  CoverChangeTime = "cover___changeTime",
-  CoverBirthTime = "cover___birthTime",
-  CoverRoot = "cover___root",
-  CoverDir = "cover___dir",
-  CoverBase = "cover___base",
-  CoverExt = "cover___ext",
-  CoverName = "cover___name",
-  CoverRelativeDirectory = "cover___relativeDirectory",
-  CoverDev = "cover___dev",
-  CoverMode = "cover___mode",
-  CoverNlink = "cover___nlink",
-  CoverUid = "cover___uid",
-  CoverGid = "cover___gid",
-  CoverRdev = "cover___rdev",
-  CoverBlksize = "cover___blksize",
-  CoverIno = "cover___ino",
-  CoverBlocks = "cover___blocks",
-  CoverAtimeMs = "cover___atimeMs",
-  CoverMtimeMs = "cover___mtimeMs",
-  CoverCtimeMs = "cover___ctimeMs",
-  CoverBirthtimeMs = "cover___birthtimeMs",
-  CoverAtime = "cover___atime",
-  CoverMtime = "cover___mtime",
-  CoverCtime = "cover___ctime",
-  CoverBirthtime = "cover___birthtime",
-  CoverUrl = "cover___url",
-  CoverPublicUrl = "cover___publicURL",
-  Desc = "desc"
-}
-
-export type ProjectsYamlFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  title_detail?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
-  category?: Maybe<StringQueryOperatorInput>;
-  color?: Maybe<StringQueryOperatorInput>;
-  images?: Maybe<StringQueryOperatorInput>;
-  cover?: Maybe<FileFilterInput>;
-  desc?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ProjectsYamlGroupConnection = {
-  totalCount: Scalars["Int"];
-  edges: Array<ProjectsYamlEdge>;
-  nodes: Array<ProjectsYaml>;
-  pageInfo: PageInfo;
-  field: Scalars["String"];
-  fieldValue?: Maybe<Scalars["String"]>;
-};
-
-export type ProjectsYamlSortInput = {
-  fields?: Maybe<Array<Maybe<ProjectsYamlFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
 export type Query = {
   file?: Maybe<File>;
   allFile?: Maybe<FileConnection>;
@@ -2052,18 +1891,16 @@ export type Query = {
   allSite?: Maybe<SiteConnection>;
   directory?: Maybe<Directory>;
   allDirectory?: Maybe<DirectoryConnection>;
-  projectsYaml?: Maybe<ProjectsYaml>;
-  allProjectsYaml?: Maybe<ProjectsYamlConnection>;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp?: Maybe<ImageSharpConnection>;
-  experiencesYaml?: Maybe<ExperiencesYaml>;
-  allExperiencesYaml?: Maybe<ExperiencesYamlConnection>;
+  stacksYaml?: Maybe<StacksYaml>;
+  allStacksYaml?: Maybe<StacksYamlConnection>;
   navigationYaml?: Maybe<NavigationYaml>;
   allNavigationYaml?: Maybe<NavigationYamlConnection>;
   instaNode?: Maybe<InstaNode>;
   allInstaNode?: Maybe<InstaNodeConnection>;
-  stacksYaml?: Maybe<StacksYaml>;
-  allStacksYaml?: Maybe<StacksYamlConnection>;
+  experiencesYaml?: Maybe<ExperiencesYaml>;
+  allExperiencesYaml?: Maybe<ExperiencesYamlConnection>;
 };
 
 export type QueryFileArgs = {
@@ -2126,7 +1963,6 @@ export type QuerySitePageArgs = {
   component?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -2229,28 +2065,6 @@ export type QueryAllDirectoryArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryProjectsYamlArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  title_detail?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
-  category?: Maybe<StringQueryOperatorInput>;
-  color?: Maybe<StringQueryOperatorInput>;
-  images?: Maybe<StringQueryOperatorInput>;
-  cover?: Maybe<FileFilterInput>;
-  desc?: Maybe<StringQueryOperatorInput>;
-};
-
-export type QueryAllProjectsYamlArgs = {
-  filter?: Maybe<ProjectsYamlFilterInput>;
-  sort?: Maybe<ProjectsYamlSortInput>;
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-};
-
 export type QueryImageSharpArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2271,25 +2085,24 @@ export type QueryAllImageSharpArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryExperiencesYamlArgs = {
+export type QueryStacksYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  title_detail?: Maybe<StringQueryOperatorInput>;
-  category?: Maybe<StringQueryOperatorInput>;
-  desc?: Maybe<StringQueryOperatorInput>;
-  location?: Maybe<StringQueryOperatorInput>;
-  startedAt?: Maybe<DateQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  name_detail?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
-  pinned?: Maybe<BooleanQueryOperatorInput>;
-  order?: Maybe<IntQueryOperatorInput>;
+  logo?: Maybe<FileFilterInput>;
+  learnedAt?: Maybe<DateQueryOperatorInput>;
+  endedAt?: Maybe<StringQueryOperatorInput>;
+  desc?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
 };
 
-export type QueryAllExperiencesYamlArgs = {
-  filter?: Maybe<ExperiencesYamlFilterInput>;
-  sort?: Maybe<ExperiencesYamlSortInput>;
+export type QueryAllStacksYamlArgs = {
+  filter?: Maybe<StacksYamlFilterInput>;
+  sort?: Maybe<StacksYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -2336,24 +2149,27 @@ export type QueryAllInstaNodeArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryStacksYamlArgs = {
+export type QueryExperiencesYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  name_detail?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  logo?: Maybe<FileFilterInput>;
-  learnedAt?: Maybe<DateQueryOperatorInput>;
-  endedAt?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  title_detail?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
   desc?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
+  location?: Maybe<StringQueryOperatorInput>;
+  startedAt?: Maybe<DateQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  pinned?: Maybe<BooleanQueryOperatorInput>;
+  isJoined?: Maybe<BooleanQueryOperatorInput>;
+  photo?: Maybe<FileFilterInput>;
+  order?: Maybe<IntQueryOperatorInput>;
 };
 
-export type QueryAllStacksYamlArgs = {
-  filter?: Maybe<StacksYamlFilterInput>;
-  sort?: Maybe<StacksYamlSortInput>;
+export type QueryAllExperiencesYamlArgs = {
+  filter?: Maybe<ExperiencesYamlFilterInput>;
+  sort?: Maybe<ExperiencesYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -2542,7 +2358,6 @@ export type SitePage = Node & {
   component?: Maybe<Scalars["String"]>;
   componentChunkName?: Maybe<Scalars["String"]>;
   isCreatedByStatefulCreatePages?: Maybe<Scalars["Boolean"]>;
-  context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars["String"]>;
   componentPath?: Maybe<Scalars["String"]>;
@@ -2565,16 +2380,6 @@ export type SitePageConnectionGroupArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
   field: SitePageFieldsEnum;
-};
-
-export type SitePageContext = {
-  slug?: Maybe<Scalars["String"]>;
-  images?: Maybe<Scalars["String"]>;
-};
-
-export type SitePageContextFilterInput = {
-  slug?: Maybe<StringQueryOperatorInput>;
-  images?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2676,8 +2481,6 @@ export enum SitePageFieldsEnum {
   Component = "component",
   ComponentChunkName = "componentChunkName",
   IsCreatedByStatefulCreatePages = "isCreatedByStatefulCreatePages",
-  ContextSlug = "context___slug",
-  ContextImages = "context___images",
   PluginCreatorId = "pluginCreator___id",
   PluginCreatorParentId = "pluginCreator___parent___id",
   PluginCreatorParentParentId = "pluginCreator___parent___parent___id",
@@ -2764,7 +2567,6 @@ export type SitePageFilterInput = {
   component?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
-  context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
@@ -3481,72 +3283,29 @@ export type SeoQuery = { __typename?: "Query" } & {
 export type Stack_StackFragment = { __typename?: "StacksYaml" } & Pick<
   StacksYaml,
   "id" | "name" | "name_detail" | "url" | "learnedAt" | "endedAt" | "desc"
-> & {
-    logo: Maybe<
-      { __typename?: "File" } & Pick<File, "id" | "relativePath" | "publicURL">
-    >;
-  };
+> & { logo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">> };
 
-export type ProjectTemplateQueryVariables = {
-  slug: Scalars["String"];
-  images: Scalars["String"];
-};
+export type TimelineQueryVariables = {};
 
-export type ProjectTemplateQuery = { __typename?: "Query" } & {
-  project: Maybe<
-    { __typename?: "ProjectsYaml" } & Pick<
-      ProjectsYaml,
-      "title_detail" | "color" | "category" | "desc" | "slug"
-    > & {
-        parent: Maybe<
-          {
-            __typename?:
-              | "File"
-              | "ProjectsYaml"
-              | "ImageSharp"
-              | "ExperiencesYaml"
-              | "NavigationYaml"
-              | "StacksYaml"
-              | "SitePage"
-              | "SitePlugin"
-              | "Site"
-              | "Directory"
-              | "InstaNode";
-          } & ({ __typename?: "File" } & Pick<
-            File,
-            "modifiedTime" | "birthTime"
-          >)
-        >;
-        cover: Maybe<
-          { __typename?: "File" } & {
-            childImageSharp: Maybe<
-              { __typename?: "ImageSharp" } & {
-                resize: Maybe<
-                  { __typename?: "ImageSharpResize" } & Pick<
-                    ImageSharpResize,
-                    "src"
-                  >
-                >;
-              }
-            >;
-          }
-        >;
-      }
-  >;
-  images: Maybe<
-    { __typename?: "FileConnection" } & {
+export type TimelineQuery = { __typename?: "Query" } & {
+  experiences: Maybe<
+    { __typename?: "ExperiencesYamlConnection" } & {
       edges: Array<
-        { __typename?: "FileEdge" } & {
-          node: { __typename?: "File" } & Pick<File, "name"> & {
-              childImageSharp: Maybe<
-                { __typename?: "ImageSharp" } & {
-                  fluid: Maybe<
-                    {
-                      __typename?: "ImageSharpFluid";
-                    } & GatsbyImageSharpFluid_WithWebpFragment
-                  >;
-                }
-              >;
+        { __typename?: "ExperiencesYamlEdge" } & {
+          node: { __typename?: "ExperiencesYaml" } & Pick<
+            ExperiencesYaml,
+            | "id"
+            | "title"
+            | "title_detail"
+            | "category"
+            | "desc"
+            | "location"
+            | "startedAt"
+            | "url"
+            | "pinned"
+            | "isJoined"
+          > & {
+              photo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">>;
             };
         }
       >;

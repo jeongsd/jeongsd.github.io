@@ -1,10 +1,12 @@
 import React from 'react'
-import Octicon, { Organization, Location, Mail, Link } from '@githubprimer/octicons-react'
+import { Organization, Location, Mail, Link } from '@githubprimer/octicons-react'
 import styled from 'styled-components'
+import { StyledOcticon } from '@primer/components'
 import { useSpring, config } from 'react-spring'
 import PinnedExperienceList from '../components/PinnedExperienceList'
 import CommercialToolkitsList from '../components/CommercialToolkitsList'
 import PreviousExperienceInList from '../components/PreviousExperienceInList'
+import Timeline from '../components/Timeline'
 import DabbledWithList from '../components/DabbledWithList'
 // import { IndexQuery } from '../generated/graphql'
 
@@ -17,9 +19,9 @@ const Main = styled.div`
   margin: auto;
   display: flex;
 `
-const StyledOcticon = styled(Octicon)`
-  width: 16px;
-`
+// const StyledOcticon = styled(Octicon)`
+//   width: 16px;
+// `
 
 
 const Index: React.FunctionComponent<PageProps> = ({ data }) => {
@@ -51,25 +53,25 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
 
           <ul className="border-top border-gray-light pt-3 mb-3">
             <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
-              <StyledOcticon className="ml-1 mr-2" icon={Organization} />
+              <StyledOcticon size={16} ml={1} mr={2} icon={Organization} />
               <span>
                 Ediket
               </span>
             </li>
             <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
-              <StyledOcticon className="ml-1 mr-2" icon={Location} />
+              <StyledOcticon size={16} ml={1} mr={2} icon={Location} />
               <span>
                 Seoul
               </span>
             </li>
             <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
-              <StyledOcticon className="ml-1 mr-2" icon={Mail} />
+              <StyledOcticon size={16} ml={1} mr={2} icon={Mail} />
               <a href="mailto:asdfg852456@gmail.com">
                 asdfg852456@gmail.com
               </a>
             </li>
             <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
-              <StyledOcticon className="ml-1 mr-2" icon={Link} />
+              <StyledOcticon size={16} ml={1} mr={2} icon={Link} />
               <a rel="nofollow me" href="https://github.com/jeongsd">https://github.com/jeongsd</a>
             </li>
           </ul>
@@ -108,8 +110,19 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
             <div>
               <PinnedExperienceList />
             </div>
-
           </div>
+
+          <div className="mt-4">
+            <h2 className="f4 mb-2 text-normal">
+              Experience activity
+            </h2>
+            <Timeline />
+            {/* <div>
+              <PinnedExperienceList />
+            </div> */}
+          </div>
+
+
         </div>
       </div>
     </div>

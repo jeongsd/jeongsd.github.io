@@ -5,7 +5,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { oc } from 'ts-optchain'
 import styled from 'styled-components'
 import Octicon, { Location, Calendar } from '@githubprimer/octicons-react'
-
 import { PinnedExperienceListQuery } from '../generated/graphql'
 import { ChildImageSharp } from '../types'
 
