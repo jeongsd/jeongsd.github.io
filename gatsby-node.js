@@ -8,33 +8,33 @@ const wrapper = promise =>
   })
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  // const { createPage } = actions
 
-  const projectTemplate = require.resolve('./src/templates/project.tsx')
+  // const projectTemplate = require.resolve('./src/templates/project.tsx')
 
-  const result = await wrapper(
-    graphql(`
-      {
-        projects: allProjectsYaml {
-          edges {
-            node {
-              slug
-              images
-            }
-          }
-        }
-      }
-    `)
-  )
+  // const result = await wrapper(
+  //   graphql(`
+  //     {
+  //       projects: allProjectsYaml {
+  //         edges {
+  //           node {
+  //             slug
+  //             images
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `)
+  // )
 
-  result.data.projects.edges.forEach(edge => {
-    createPage({
-      path: edge.node.slug,
-      component: projectTemplate,
-      context: {
-        slug: edge.node.slug,
-        images: `/${edge.node.images}/`,
-      }
-    })
-  })
+  // result.data.projects.edges.forEach(edge => {
+  //   createPage({
+  //     path: edge.node.slug,
+  //     component: projectTemplate,
+  //     context: {
+  //       slug: edge.node.slug,
+  //       images: `/${edge.node.images}/`,
+  //     }
+  //   })
+  // })
 }
