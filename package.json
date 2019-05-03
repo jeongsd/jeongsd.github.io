@@ -26,7 +26,7 @@
     "test:watch": "cross-env CYPRESS_SUPPORT=y npm-run-all -p test:compile:watch server:open",
     "test:ci": "cross-env CYPRESS_SUPPORT=y npm-run-all -s test:compile server:ci",
     "gqlgen": "graphql-codegen --config codegen.yml",
-    "deploy": "gatsby build && gh-pages -d public"
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "dependencies": {
     "@githubprimer/octicons-react": "^8.5.0",
