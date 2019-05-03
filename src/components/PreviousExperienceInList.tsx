@@ -2,7 +2,7 @@ import React from 'react'
 import { oc } from 'ts-optchain'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { CommercialToolkitsListQuery } from '../generated/graphql'
+import { PreviousExperienceInListQuery } from '../generated/graphql'
 import Stack from './Stack'
 
 const Root = styled.div`
@@ -10,13 +10,13 @@ const Root = styled.div`
   flex-wrap: wrap;
 `
 
-const CommercialToolkitsList: React.SFC = () => {
-  const data: CommercialToolkitsListQuery = useStaticQuery(query)
-  const commercialToolkits = oc(data).commercialToolkits.edges([])
+const PreviousExperienceInList: React.SFC = () => {
+  const data: PreviousExperienceInListQuery = useStaticQuery(query)
+  const preExperiences = oc(data).preExperiences.edges([])
 
   return (
     <Root>
-      {commercialToolkits.map(({ node }) => {
+      {preExperiences.map(({ node }) => {
         if (!node) return null
         return <Stack key={node.id} stack={node} />
       })}
@@ -24,11 +24,11 @@ const CommercialToolkitsList: React.SFC = () => {
   )
 }
 
-export default CommercialToolkitsList
+export default PreviousExperienceInList
 
 export const query = graphql`
-  query CommercialToolkitsList {
-    commercialToolkits: allStacksYaml(filter: {type: {eq: "commercialToolkit"}}) {
+  query PreviousExperienceInList {
+    preExperiences: allStacksYaml(filter: {type: {eq: "previousExperienceIn"}}) {
       edges {
         node {
           id

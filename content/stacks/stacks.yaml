@@ -1,3 +1,4 @@
+# Start commercialToolkit
 - name: "React"
   name_detail: "A JavaScript library for building user interfaces"
   url: "https://reactjs.org/"
@@ -131,22 +132,13 @@
   desc: "더 이상 webpack config 조합하지 않아도됨 안하게 해줌"
   type: "commercialToolkit"
 
-- name: "firebase"
-  name_detail: "Firebase helps mobile and web app teams succeed"
-  url: "https://firebase.google.com/"
-  logo: "./logos/firebase.svg"
-  learnedAt: 2017-06-05
-  endedAt: ""
-  desc: "이것 저것 다 해줘서 고마운데 GraphQL을 사용하기엔 불편하다."
-  type: "commercialToolkit"
-
 - name: "prisma"
   name_detail: "Database tools for modern application development"
   url: "https://www.prisma.io/"
   logo: "./logos/prisma.svg"
   learnedAt: 2018-12-09
   endedAt: ""
-  desc: "Apollo Cloud를 쓰고 싶지만 너무 비싸다. \n그리고 GrapqhQL SDL syntax로 PostgreSQL 스키마도 작성하고 TypeScript도 뽑아주고 Grapqhl-yoga로 graphql 서버도 만들고 오픈소스 크하하"
+  desc: "Apollo Cloud를 쓰고 싶지만 너무 비싸다. \n그리고 GrapqhQL SDL syntax로 PostgreSQL 스키마도 작성하고 TypeScript도 뽑아주고 docker-compose도 있고 Grapqhl-yoga로 graphql 서버도 만들고 오픈소스 크하하 😀😀😀"
   type: "commercialToolkit"
 
 - name: "rethinkDB"
@@ -194,13 +186,49 @@
   desc: "없어선 안되는 유틸리티 라이브러리"
   type: "commercialToolkit"
 
+- name: "formik"
+  name_detail: "Build forms in React, without the tears 😭"
+  url: "https://jaredpalmer.com/formik/"
+  logo: "./logos/formik.png"
+  learnedAt:
+  endedAt: ""
+  desc: "react state -> redux-form -> formik + yup"
+  type: "commercialToolkit"
+
+- name: "immutable"
+  name_detail: "Immutable collections for JavaScript"
+  url: "https://immutable-js.github.io/immutable-js/"
+  logo: "./logos/immutable.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "immutable 유틸리티 라이브러리\nimmutability-helper를 쓰는게 더 편리하다고 생각한다."
+  type: "commercialToolkit"
+
+- name: "webpack"
+  name_detail: "webpack is a module bundler. "
+  url: "https://webpack.js.org/"
+  logo: "./logos/webpack.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "처음 사용했을 때는 여러 파일들을 불러올 수 있고 다양하게 빌드를 할 수 있어서 신기했지만 요새는 config 설정하기가 귀찮다."
+  type: "commercialToolkit"
+
 - name: "gatsby"
   name_detail: "Blazing fast modern site generator for React. Go beyond static sites: build blogs, ecommerce sites, full-blown apps, and more with Gatsby."
   url: "https://www.gatsbyjs.org/"
   logo: "./logos/gatsby.svg"
   learnedAt: 2019-05-01
   endedAt: ""
-  desc: "맨 처음 나왔을 땐 그저 그렇다고 생각 해지만 지금은 블로그 만들 때 이것 만한 게 없습니다."
+  desc: "맨 처음 나왔을 땐 그저 그렇다고 생각 했지만 지금은 블로그 만들 때 이것 만한 게 없습니다."
+  type: "commercialToolkit"
+
+- name: "testcafe"
+  name_detail: "A Node.js tool to automate end-to-end web testing."
+  url: "https://devexpress.github.io/testcafe/"
+  logo: "./logos/testcafe.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "e2e 테스트 할떄 더 이상 Selenium를 사용 안해도 된다. Node.js tool 😝😝"
   type: "commercialToolkit"
 
 - name: "Github"
@@ -220,3 +248,245 @@
   endedAt: ""
   desc: "마우스 없이 터미널을 사용하기\niTerm2가 없는 리눅스에서도 화면분활을 편하게 할 수 있어서 매우 만족함"
   type: "commercialToolkit"
+
+# End commercialToolkit
+
+# Start previousExperienceIn
+- name: "backbone"
+  name_detail: "Give your JS App some Backbone with Models, Views, Collections, and Events "
+  url: "https://backbonejs.org/"
+  logo: "./logos/backbone.svg"
+  learnedAt:
+  endedAt:
+  desc: "처음으로 사용한 MVC 라이브러리"
+  type: "previousExperienceIn"
+
+- name: "marionette"
+  name_detail: "Marionette simplifies your Backbone application code with robust views and architecture solutions."
+  url: "https://marionettejs.com/"
+  logo: "./logos/marionette.svg"
+  learnedAt:
+  endedAt:
+  desc: "backbone과 사용하면 좋아요"
+  type: "previousExperienceIn"
+
+- name: "Underscore"
+  name_detail: "JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects."
+  url: "https://underscorejs.org/"
+  logo: "./logos/underscore.png"
+  learnedAt:
+  endedAt:
+  desc: "backbone을 사용하면 처음 알게된 유틸리티 라이브러리"
+  type: "previousExperienceIn"
+
+- name: "Flux"
+  name_detail: "Flux is the application architecture that Facebook uses for building client-side web applications."
+  url: "https://facebook.github.io/flux/"
+  logo: "./logos/flux.svg"
+  learnedAt:
+  endedAt:
+  desc: "React 첫 데이터 관리 라이브러리"
+  type: "previousExperienceIn"
+
+- name: "Redux"
+  name_detail: "A Predictable State Container for JS Apps"
+  url: "https://redux.js.org/"
+  logo: "./logos/redux.svg"
+  learnedAt:
+  endedAt:
+  desc: "react-redux-firebase 사용할 때는 잘 사용했다. 파일을 많이 만들어야 되서 귀찮고 방법도 너무 다양하여 이제는 hook 사용하거나 더 작은 라이브러리 선호"
+  type: "previousExperienceIn"
+
+- name: "Relay"
+  name_detail: "A JavaScript framework for building data-driven React applications"
+  url: "https://facebook.github.io/relay/"
+  logo: "./logos/relay.svg"
+  learnedAt: 2015-09-18
+  endedAt:
+  desc: "베타 버전부터 Relay Modern까지는 잘 사용 했지만 지금은 Apollo가 너무 좋다."
+  type: "previousExperienceIn"
+
+- name: "firebase"
+  name_detail: "Firebase helps mobile and web app teams succeed"
+  url: "https://firebase.google.com/"
+  logo: "./logos/firebase.svg"
+  learnedAt: 2017-06-05
+  endedAt: ""
+  desc: "이것 저것 다 해줘서 고마운데 GraphQL을 사용하기엔 불편하다."
+  type: "previousExperienceIn"
+
+- name: "bootstrap"
+  name_detail: "Build responsive, mobile-first projects on the web with the world’s most popular front-end component library."
+  url: "https://getbootstrap.com/"
+  logo: "./logos/bootstrap.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "예전에는 이것 만한 게 없었죠"
+  type: "previousExperienceIn"
+
+- name: "less"
+  name_detail: "It's CSS, with just a little more."
+  url: "http://lesscss.org/"
+  logo: "./logos/less.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "처음 사용해본 CSS preprocessor\nbootstrap 사용할떄 사용함"
+  type: "previousExperienceIn"
+
+- name: "CSS modules"
+  name_detail: "A CSS Module is a CSS file in which all class names and animation names are scoped locally by default."
+  url: "https://github.com/css-modules/css-modules"
+  logo: "./logos/cssModules.png"
+  learnedAt:
+  endedAt: ""
+  desc: "클래스 네이밍을 신경 안써도 되서 CSS in JS 나오기 전까지는 너무 잘 사용했다."
+  type: "previousExperienceIn"
+
+- name: "Post CSS"
+  name_detail: "A tool for transforming CSS with JavaScript"
+  url: "https://postcss.org/"
+  logo: "./logos/postcss.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "CSS에서 babel쓰는 느낌"
+  type: "previousExperienceIn"
+
+- name: "handlebars"
+  name_detail: "Handlebars provides the power necessary to let you build semantic templates effectively with no frustration."
+  url: "http://handlebarsjs.com/"
+  logo: "./logos/handlebars.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "backbone 사용할 떄 처음 사용해본 HTML template"
+  type: "previousExperienceIn"
+
+- name: "RequireJS"
+  name_detail: "RequireJS is a JavaScript file and module loader. "
+  url: "https://requirejs.org/"
+  logo: "./logos/require.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "backbone 사용할떄 처음 사용해본 모듈 로더"
+  type: "previousExperienceIn"
+
+- name: "gulp"
+  name_detail: "Automate and enhance your workflow"
+  url: "https://gulpjs.com/"
+  logo: "./logos/gulp.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "webpack을 사용하기 전까지 사용한 툴\ngrunt보단 gulp를 선호 합니다."
+  type: "previousExperienceIn"
+
+- name: "grunt"
+  name_detail: "The JavaScript Task Runner"
+  url: "https://gruntjs.com/"
+  logo: "./logos/grunt.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "webpack을 사용하기 전까지 사용한 툴"
+  type: "previousExperienceIn"
+- name: "browserify"
+  name_detail: "Browserify lets you require('modules') in the browser by bundling up all of your dependencies."
+  url: "http://browserify.org/"
+  logo: "./logos/browserify-icon.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "webpack을 사용하기 전까지 사용한 툴"
+  type: "previousExperienceIn"
+
+- name: "bower"
+  name_detail: "A package manager for the web"
+  url: "https://bower.io/"
+  logo: "./logos/bower.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "로고가 귀엽지만 처음 사용할 당시에는 npm를 사용할지 bower를 사용할지 고르는게 헷갈렸다."
+  type: "previousExperienceIn"
+
+- name: "Nightwatch"
+  name_detail: "Browser automated testing, the easy way."
+  url: "http://nightwatchjs.org/"
+  logo: "./logos/nightwatch.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "처음 사용할 당시에는 이게 제일 좋은거 같아서 사용하였다. 내가 Java에 친숙하지 않아서 그런지 Java Selenium 설치하고 돌리기 번거롭고 무겁다고 생각한다."
+  type: "previousExperienceIn"
+
+- name: "Mocha"
+  name_detail: "Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun."
+  url: "https://mochajs.org/"
+  logo: "./logos/mocha.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "처음 사용한 테스트 라이브러리 Unit test"
+  type: "previousExperienceIn"
+
+- name: "Chai"
+  name_detail: "Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework."
+  url: "https://www.chaijs.com/"
+  logo: "./logos/chai.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "처음 사용한 테스트 라이브러리 BDD, TDD"
+  type: "previousExperienceIn"
+
+# End previousExperienceIn
+
+
+# Start dabbledWith
+- name: "docker"
+  name_detail: "Enterprise Container Platform for High-Velocity Innovation"
+  url: "https://www.docker.com/"
+  logo: "./logos/docker.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "당연히 사용해야 되고 좋은 건 알겠는데 할 때마다 오랜만에 봐서 문서를 다시 보는 게 귀찮다."
+  type: "dabbledWith"
+
+- name: "PostgreSQL"
+  name_detail: "The World's Most Advanced Open Source Relational Database"
+  url: "https://www.postgresql.org/"
+  logo: "./logos/postgresql.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "마음에 들지만 지금은 prisma로 사용하는중"
+  type: "dabbledWith"
+
+- name: "Amazon CloudFront"
+  name_detail: "Fast, highly secure and programmable content delivery network (CDN)"
+  url: "https://aws.amazon.com/cloudfront/"
+  logo: "./logos/aws-cloudfront.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "CDN 할떄 하는놈\n필요 할떄만 문서를 봐서 사용하는데 문서보기가 어렵다"
+  type: "dabbledWith"
+- name: "Amazon S3"
+  name_detail: "Object storage built to store and retrieve any amount of data from anywhere"
+  url: "https://aws.amazon.com/s3/"
+  logo: "./logos/aws-s3.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "이것 저것 파일 올리기에 좋다."
+  type: "dabbledWith"
+
+- name: "Amazon EC2"
+  name_detail: "Secure and resizable compute capacity in the cloud. Launch applications when needed without upfront commitments."
+  url: "https://aws.amazon.com/ec2/"
+  logo: "./logos/aws-ec2.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "필요 할떄만 문서를 봐서 사용하는데 문서보기가 어렵다"
+  type: "dabbledWith"
+
+- name: "Amazon Route 53"
+  name_detail: "A reliable and cost-effective way to route end users to Internet applications"
+  url: "https://aws.amazon.com/route53/"
+  logo: "./logos/aws-route53.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "맨 앞에 있는놈, cloudfront에 보내거나\n주소를 필요 할떄만 문서를 봐서 사용하는데 문서보기가 어렵다"
+  type: "dabbledWith"
+
+
+# End dabbledWith

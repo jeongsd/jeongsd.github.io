@@ -552,9 +552,9 @@ export type File = Node & {
   publicURL?: Maybe<Scalars["String"]>;
   childrenProjectsYaml?: Maybe<Array<Maybe<ProjectsYaml>>>;
   childImageSharp?: Maybe<ImageSharp>;
-  childrenStacksYaml?: Maybe<Array<Maybe<StacksYaml>>>;
   childrenExperiencesYaml?: Maybe<Array<Maybe<ExperiencesYaml>>>;
   childrenNavigationYaml?: Maybe<Array<Maybe<NavigationYaml>>>;
+  childrenStacksYaml?: Maybe<Array<Maybe<StacksYaml>>>;
 };
 
 export type FileModifiedTimeArgs = {
@@ -2056,14 +2056,14 @@ export type Query = {
   allProjectsYaml?: Maybe<ProjectsYamlConnection>;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp?: Maybe<ImageSharpConnection>;
-  stacksYaml?: Maybe<StacksYaml>;
-  allStacksYaml?: Maybe<StacksYamlConnection>;
   experiencesYaml?: Maybe<ExperiencesYaml>;
   allExperiencesYaml?: Maybe<ExperiencesYamlConnection>;
   navigationYaml?: Maybe<NavigationYaml>;
   allNavigationYaml?: Maybe<NavigationYamlConnection>;
   instaNode?: Maybe<InstaNode>;
   allInstaNode?: Maybe<InstaNodeConnection>;
+  stacksYaml?: Maybe<StacksYaml>;
+  allStacksYaml?: Maybe<StacksYamlConnection>;
 };
 
 export type QueryFileArgs = {
@@ -2271,28 +2271,6 @@ export type QueryAllImageSharpArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryStacksYamlArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  name_detail?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  logo?: Maybe<FileFilterInput>;
-  learnedAt?: Maybe<DateQueryOperatorInput>;
-  endedAt?: Maybe<StringQueryOperatorInput>;
-  desc?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type QueryAllStacksYamlArgs = {
-  filter?: Maybe<StacksYamlFilterInput>;
-  sort?: Maybe<StacksYamlSortInput>;
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-};
-
 export type QueryExperiencesYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2354,6 +2332,28 @@ export type QueryInstaNodeArgs = {
 export type QueryAllInstaNodeArgs = {
   filter?: Maybe<InstaNodeFilterInput>;
   sort?: Maybe<InstaNodeSortInput>;
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+};
+
+export type QueryStacksYamlArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  name_detail?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  logo?: Maybe<FileFilterInput>;
+  learnedAt?: Maybe<DateQueryOperatorInput>;
+  endedAt?: Maybe<StringQueryOperatorInput>;
+  desc?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllStacksYamlArgs = {
+  filter?: Maybe<StacksYamlFilterInput>;
+  sort?: Maybe<StacksYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -3373,23 +3373,23 @@ export type CommercialToolkitsListQuery = { __typename?: "Query" } & {
     { __typename?: "StacksYamlConnection" } & {
       edges: Array<
         { __typename?: "StacksYamlEdge" } & {
-          node: { __typename?: "StacksYaml" } & Pick<
-            StacksYaml,
-            | "id"
-            | "name"
-            | "name_detail"
-            | "url"
-            | "learnedAt"
-            | "endedAt"
-            | "desc"
-          > & {
-              logo: Maybe<
-                { __typename?: "File" } & Pick<
-                  File,
-                  "id" | "relativePath" | "publicURL"
-                >
-              >;
-            };
+          node: { __typename?: "StacksYaml" } & Pick<StacksYaml, "id"> &
+            Stack_StackFragment;
+        }
+      >;
+    }
+  >;
+};
+
+export type DabbledWithListQueryVariables = {};
+
+export type DabbledWithListQuery = { __typename?: "Query" } & {
+  dabbledWiths: Maybe<
+    { __typename?: "StacksYamlConnection" } & {
+      edges: Array<
+        { __typename?: "StacksYamlEdge" } & {
+          node: { __typename?: "StacksYaml" } & Pick<StacksYaml, "id"> &
+            Stack_StackFragment;
         }
       >;
     }
@@ -3438,6 +3438,21 @@ export type PinnedExperienceListQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type PreviousExperienceInListQueryVariables = {};
+
+export type PreviousExperienceInListQuery = { __typename?: "Query" } & {
+  preExperiences: Maybe<
+    { __typename?: "StacksYamlConnection" } & {
+      edges: Array<
+        { __typename?: "StacksYamlEdge" } & {
+          node: { __typename?: "StacksYaml" } & Pick<StacksYaml, "id"> &
+            Stack_StackFragment;
+        }
+      >;
+    }
+  >;
+};
+
 export type SeoQueryVariables = {};
 
 export type SeoQuery = { __typename?: "Query" } & {
@@ -3463,6 +3478,15 @@ export type SeoQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type Stack_StackFragment = { __typename?: "StacksYaml" } & Pick<
+  StacksYaml,
+  "id" | "name" | "name_detail" | "url" | "learnedAt" | "endedAt" | "desc"
+> & {
+    logo: Maybe<
+      { __typename?: "File" } & Pick<File, "id" | "relativePath" | "publicURL">
+    >;
+  };
+
 export type ProjectTemplateQueryVariables = {
   slug: Scalars["String"];
   images: Scalars["String"];
@@ -3480,9 +3504,9 @@ export type ProjectTemplateQuery = { __typename?: "Query" } & {
               | "File"
               | "ProjectsYaml"
               | "ImageSharp"
-              | "StacksYaml"
               | "ExperiencesYaml"
               | "NavigationYaml"
+              | "StacksYaml"
               | "SitePage"
               | "SitePlugin"
               | "Site"

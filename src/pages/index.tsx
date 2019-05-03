@@ -1,8 +1,11 @@
 import React from 'react'
+import Octicon, { Organization, Location, Mail, Link } from '@githubprimer/octicons-react'
 import styled from 'styled-components'
 import { useSpring, config } from 'react-spring'
 import PinnedExperienceList from '../components/PinnedExperienceList'
 import CommercialToolkitsList from '../components/CommercialToolkitsList'
+import PreviousExperienceInList from '../components/PreviousExperienceInList'
+import DabbledWithList from '../components/DabbledWithList'
 // import { IndexQuery } from '../generated/graphql'
 
 type PageProps = {
@@ -14,6 +17,10 @@ const Main = styled.div`
   margin: auto;
   display: flex;
 `
+const StyledOcticon = styled(Octicon)`
+  width: 16px;
+`
+
 
 const Index: React.FunctionComponent<PageProps> = ({ data }) => {
   const pageAnimation = useSpring({
@@ -38,15 +45,53 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
               Jeong Seong Dae
             </h1>
             <h2 className="h3 f3-light text-gray">
-              Full Stack Developer・JavaScript
+              Full Stack Developer ・ JavaScript
             </h2>
           </div>
+
+          <ul className="border-top border-gray-light pt-3 mb-3">
+            <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
+              <StyledOcticon className="ml-1 mr-2" icon={Organization} />
+              <span>
+                Ediket
+              </span>
+            </li>
+            <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
+              <StyledOcticon className="ml-1 mr-2" icon={Location} />
+              <span>
+                Seoul
+              </span>
+            </li>
+            <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
+              <StyledOcticon className="ml-1 mr-2" icon={Mail} />
+              <a href="mailto:asdfg852456@gmail.com">
+                asdfg852456@gmail.com
+              </a>
+            </li>
+            <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
+              <StyledOcticon className="ml-1 mr-2" icon={Link} />
+              <a rel="nofollow me" href="https://github.com/jeongsd">https://github.com/jeongsd</a>
+            </li>
+          </ul>
 
           <div className="border-top border-gray-light py-3">
             <h2 className="mb-1 h4">
               Commercial Toolkit
             </h2>
             <CommercialToolkitsList />
+          </div>
+          <div className="border-top border-gray-light py-3">
+            <h2 className="mb-1 h4">
+              Previous Experience In
+            </h2>
+            <PreviousExperienceInList />
+          </div>
+
+          <div className="border-top border-gray-light py-3">
+            <h2 className="mb-1 h4">
+              Dabbled With
+            </h2>
+            <DabbledWithList />
           </div>
         </div>
         <div className="col-9 float-left pl-2">
