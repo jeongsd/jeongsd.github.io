@@ -37,8 +37,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'commercialToolkit',
-        path: `${__dirname}/content/commercialToolkit`,
+        name: 'stacks',
+        path: `${__dirname}/content/stacks`,
       },
     },
     {

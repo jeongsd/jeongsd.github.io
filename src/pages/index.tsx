@@ -1,17 +1,11 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { animated, useSpring, config } from 'react-spring'
-import Layout from '../components/layout'
-import GridItem from '../components/grid-item'
+import { useSpring, config } from 'react-spring'
 import PinnedExperienceList from '../components/PinnedExperienceList'
 import CommercialToolkitsList from '../components/CommercialToolkitsList'
-import { IndexQuery } from '../generated/graphql'
-import { ChildImageSharp } from '../types'
+// import { IndexQuery } from '../generated/graphql'
 
 type PageProps = {
-  data: IndexQuery
 }
 
 const Main = styled.div`
@@ -78,25 +72,3 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
 }
 
 export default Index
-
-export const query = graphql`
-  query Index {
-    commercialToolkits: allCommercialToolkitsYaml {
-      edges {
-        node {
-          id
-          name
-          name_detail
-          url
-          logo {
-            id
-            relativePath
-          }
-          learnedAt
-          endedAt
-          desc
-        }
-      }
-    }
-  }
-`

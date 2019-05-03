@@ -5,6 +5,8 @@
   learnedAt: 2015-01-11
   endedAt: ""
   desc: "가장 좋아하고 아직까지 잘 사용하고 있는 라이브러리\n 최근에 나온 hook 매우 만족합니다."
+  type: "commercialToolkit"
+
 - name: "React Native"
   name_detail: "A framework for building native apps using React"
   url: "https://facebook.github.io/react-native/"
@@ -12,6 +14,8 @@
   learnedAt: 2018-10-21
   endedAt: ""
   desc: "iOS 와 Android를 React 개발자가 만들수 있어서 좋지만 전 웹 개발을 더 좋아합니다."
+  type: "commercialToolkit"
+
 - name: "HTML"
   name_detail: "Standard markup language for creating web pages and web applications."
   url: "https://www.w3.org/html/"
@@ -19,6 +23,8 @@
   learnedAt:
   endedAt: ""
   # desc: "웹 개발에 기본"
+  type: "commercialToolkit"
+
 - name: "CSS"
   name_detail: "Style sheet language used for describing the presentation of a document written in a markup language like HTML"
   url: "https://www.w3.org/TR/1999/REC-CSS1-19990111"
@@ -26,6 +32,8 @@
   learnedAt:
   endedAt: ""
   # desc: "HTML, CSS, 더불어 웹 개발에 기본"
+  type: "commercialToolkit"
+
 - name: "styled-component"
   name_detail: "Visual primitives for the component age."
   url: "https://www.styled-components.com/"
@@ -33,6 +41,7 @@
   learnedAt: 2017-03-05
   endedAt: ""
   desc: "jsx와 CSS, CSS in JS 승리자"
+  type: "commercialToolkit"
 - name: "jss"
   name_detail: "JSS is an authoring tool for CSS which allows you to use JavaScript to describe styles in a declarative, conflict-free and reusable way."
   url: "https://cssinjs.org/"
@@ -40,6 +49,7 @@
   learnedAt: 2017-03-05
   endedAt: ""
   desc: "처음에는 사용하기 싫었지만 material-ui에서 채택하여 사용하게 됬지만 지금은 만족하고 styled-component 보다 더 많이 사용한다."
+  type: "commercialToolkit"
 
 - name: "JavaScript"
   name_detail: "A high-level, interpreted programming language that conforms to the ECMAScript specification."
@@ -48,6 +58,7 @@
   learnedAt:
   endedAt: ""
   desc: "JSD -> JavaScript Developer"
+  type: "commercialToolkit"
 
 - name: "TypeScript"
   name_detail: "TypeScript brings you optional static type-checking along with the latest ECMAScript features."
@@ -56,6 +67,7 @@
   learnedAt: 2018-12-01
   endedAt: ""
   desc: "처음 사용할떄는 귀찮았지만 지금은 필수라고 생각합니다."
+  type: "commercialToolkit"
 
 - name: "Babel"
   name_detail: "The compiler for next generation JavaScript"
@@ -64,6 +76,7 @@
   learnedAt: 2015-01-11
   endedAt: ""
   desc: "새로운 문법을 쓰는게 좋죠"
+  type: "commercialToolkit"
 
 - name: "GraphQL"
   name_detail: "query language for APIs and a runtime for fulfilling those queries with your existing data."
@@ -72,6 +85,7 @@
   learnedAt: 2015-01-11
   endedAt: ""
   desc: "한번 사용하면 RESTful로 돌아갈 수 없습니다."
+  type: "commercialToolkit"
 
 - name: "Apollo"
   name_detail: "Do GraphQL Right"
@@ -80,6 +94,7 @@
   learnedAt: 2018-10-21
   endedAt: ""
   desc: "v1 버전은 redux를 사용하여 별로라고 생각하여 graphql 클라이언트는 relay를 사용하였으나\nv2부터 너무 좋아져서 당분간 계속 사용 할 것 같습니다. \nApollo-Server도 매우 좋습니다."
+  type: "commercialToolkit"
 
 - name: "GraphQL Code Generator"
   name_detail: "Generate code from your GraphQL schema with a single function call"
@@ -88,6 +103,7 @@
   learnedAt: 2018-12-01
   endedAt: ""
   desc: "GraphQL + Apollo + TypeScript = 😀"
+  type: "commercialToolkit"
 
 - name: "PWA"
   name_detail: "Progressive Web Apps provide an installable, app-like experience on desktop and mobile that are built and delivered directly via the web"
@@ -96,6 +112,7 @@
   learnedAt: 2017-06-05
   endedAt: ""
   desc: "PWA가 앱을 대체하는 날이 온다고 믿고 있습니다."
+  type: "commercialToolkit"
 
 - name: "next.js"
   name_detail: "The React Framework"
@@ -104,6 +121,7 @@
   learnedAt: 2018-10-01
   endedAt: ""
   desc: "React와 서버 사이드 렌더링"
+  type: "commercialToolkit"
 - name: "create-react-app"
   name_detail: "Set up a modern web app by running one command."
   url: "https://facebook.github.io/create-react-app/"
@@ -111,6 +129,7 @@
   learnedAt: 2018-10-01
   endedAt: ""
   desc: "더 이상 webpack config 조합하지 않아도됨 안하게 해줌"
+  type: "commercialToolkit"
 
 - name: "firebase"
   name_detail: "Firebase helps mobile and web app teams succeed"
@@ -119,6 +138,7 @@
   learnedAt: 2017-06-05
   endedAt: ""
   desc: "이것 저것 다 해줘서 고마운데 GraphQL을 사용하기엔 불편하다."
+  type: "commercialToolkit"
 
 - name: "prisma"
   name_detail: "Database tools for modern application development"
@@ -127,6 +147,7 @@
   learnedAt: 2018-12-09
   endedAt: ""
   desc: "Apollo Cloud를 쓰고 싶지만 너무 비싸다. \n그리고 GrapqhQL SDL syntax로 PostgreSQL 스키마도 작성하고 TypeScript도 뽑아주고 Grapqhl-yoga로 graphql 서버도 만들고 오픈소스 크하하"
+  type: "commercialToolkit"
 
 - name: "rethinkDB"
   name_detail: "The open-source database for the realtime web"
@@ -135,6 +156,7 @@
   learnedAt: 2015-10-18
   endedAt: ""
   desc: "사용하기 편하다. 2017년에 오픈소스 커뮤니티가 망해서 Linux Foundation에 들어갔는데 잘 살아있니?\n spectrum에서는 잘 사용 중인 듯"
+  type: "commercialToolkit"
 
 - name: "jest"
   name_detail: "Delightful JavaScript Testing"
@@ -143,6 +165,7 @@
   learnedAt: 2015-10-18
   endedAt: ""
   desc: "mocha + chai <= jest"
+  type: "commercialToolkit"
 
 - name: "material-ui"
   name_detail: "The world's most popular React UI framework"
@@ -151,6 +174,7 @@
   learnedAt: 2017-03-05
   endedAt: ""
   desc: "언제 가든 항상 새로운 것을 도전하고 배울것이 많은 커뮤니티\n 몇년째 쉬지않고 일주일마다 새로운 버전이 나옴 ㄷㄷ"
+  type: "commercialToolkit"
 
 - name: "React Router"
   name_detail: "Declarative Routing for React.js"
@@ -159,6 +183,7 @@
   learnedAt: 2015-03-01
   endedAt: ""
   desc: "SPA만 할꺼면 이거 만한게 없다고 생각합니다."
+  type: "commercialToolkit"
 
 - name: "lodash"
   name_detail: "A JavaScript utility library delivering consistency, modularity, performance, & extras."
@@ -167,6 +192,16 @@
   learnedAt:
   endedAt: ""
   desc: "없어선 안되는 유틸리티 라이브러리"
+  type: "commercialToolkit"
+
+- name: "gatsby"
+  name_detail: "Blazing fast modern site generator for React. Go beyond static sites: build blogs, ecommerce sites, full-blown apps, and more with Gatsby."
+  url: "https://www.gatsbyjs.org/"
+  logo: "./logos/gatsby.svg"
+  learnedAt: 2019-05-01
+  endedAt: ""
+  desc: "맨 처음 나왔을 땐 그저 그렇다고 생각 해지만 지금은 블로그 만들 때 이것 만한 게 없습니다."
+  type: "commercialToolkit"
 
 - name: "Github"
   name_detail: "The world's leading software development platform."
@@ -175,6 +210,7 @@
   learnedAt: 2018-12-09
   endedAt: ""
   desc: "Github을 사용하여 프로그래밍 하는것을 좋아합니다. Github을 좋아해서 이 사이트도 primer를 사용 중 입니다."
+  type: "commercialToolkit"
 
 - name: "tmux"
   name_detail: "terminal multiplexer"
@@ -183,3 +219,4 @@
   learnedAt: 2019-04-01
   endedAt: ""
   desc: "마우스 없이 터미널을 사용하기\niTerm2가 없는 리눅스에서도 화면분활을 편하게 할 수 있어서 매우 만족함"
+  type: "commercialToolkit"

@@ -1,14 +1,11 @@
 import React from 'react'
 import { DateTime } from 'luxon'
-import Img from 'gatsby-image'
-import { Manager, Reference, Popper } from 'react-popper';
 import { oc } from 'ts-optchain'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Popover from 'react-awesome-popover'
 import Octicon, { Calendar } from '@githubprimer/octicons-react'
 import { CommercialToolkitsListQuery } from '../generated/graphql'
-import { ChildImageSharp } from '../types'
 
 // type PageProps = {
 //   data: IndexQuery
@@ -111,7 +108,7 @@ export default CommercialToolkitsList
 
 export const query = graphql`
   query CommercialToolkitsList {
-    commercialToolkits: allCommercialToolkitsYaml {
+    commercialToolkits: allStacksYaml(filter: {type: {eq: "commercialToolkit"}}) {
       edges {
         node {
           id
