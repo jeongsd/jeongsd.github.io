@@ -41,7 +41,7 @@
   logo: "./logos/styled-component.png"
   learnedAt: 2017-03-05
   endedAt: ""
-  desc: "jsx와 CSS, CSS in JS 승리자"
+  desc: "jsx와 CSS, CSS in JS 승리자\nCSS 문법을 그대로 사용하여 보통 텍스트에디터에서도 지원이 잘된다."
   type: "commercialToolkit"
 - name: "jss"
   name_detail: "JSS is an authoring tool for CSS which allows you to use JavaScript to describe styles in a declarative, conflict-free and reusable way."

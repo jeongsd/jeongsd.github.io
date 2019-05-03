@@ -58,7 +58,7 @@ export type Directory = Node & {
   gid?: Maybe<Scalars["Int"]>;
   rdev?: Maybe<Scalars["Int"]>;
   blksize?: Maybe<Scalars["Int"]>;
-  ino?: Maybe<Scalars["Float"]>;
+  ino?: Maybe<Scalars["Int"]>;
   blocks?: Maybe<Scalars["Int"]>;
   atimeMs?: Maybe<Scalars["Float"]>;
   mtimeMs?: Maybe<Scalars["Float"]>;
@@ -301,7 +301,7 @@ export type DirectoryFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<FloatQueryOperatorInput>;
+  ino?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -333,7 +333,7 @@ export type DuotoneGradient = {
   opacity?: Maybe<Scalars["Int"]>;
 };
 
-export type ExperiencesYaml = Node & {
+export type ExperienceYaml = Node & {
   id: Scalars["ID"];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -346,44 +346,46 @@ export type ExperiencesYaml = Node & {
   startedAt?: Maybe<Scalars["Date"]>;
   url?: Maybe<Scalars["String"]>;
   pinned?: Maybe<Scalars["Boolean"]>;
-  isJoined?: Maybe<Scalars["Boolean"]>;
+  type?: Maybe<Scalars["String"]>;
   photo?: Maybe<File>;
+  photoWidth?: Maybe<Scalars["Int"]>;
+  photoHeight?: Maybe<Scalars["Int"]>;
   order?: Maybe<Scalars["Int"]>;
 };
 
-export type ExperiencesYamlStartedAtArgs = {
+export type ExperienceYamlStartedAtArgs = {
   formatString?: Maybe<Scalars["String"]>;
   fromNow?: Maybe<Scalars["Boolean"]>;
   difference?: Maybe<Scalars["String"]>;
   locale?: Maybe<Scalars["String"]>;
 };
 
-export type ExperiencesYamlConnection = {
+export type ExperienceYamlConnection = {
   totalCount: Scalars["Int"];
-  edges: Array<ExperiencesYamlEdge>;
-  nodes: Array<ExperiencesYaml>;
+  edges: Array<ExperienceYamlEdge>;
+  nodes: Array<ExperienceYaml>;
   pageInfo: PageInfo;
   distinct: Array<Scalars["String"]>;
-  group: Array<ExperiencesYamlGroupConnection>;
+  group: Array<ExperienceYamlGroupConnection>;
 };
 
-export type ExperiencesYamlConnectionDistinctArgs = {
-  field: ExperiencesYamlFieldsEnum;
+export type ExperienceYamlConnectionDistinctArgs = {
+  field: ExperienceYamlFieldsEnum;
 };
 
-export type ExperiencesYamlConnectionGroupArgs = {
+export type ExperienceYamlConnectionGroupArgs = {
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
-  field: ExperiencesYamlFieldsEnum;
+  field: ExperienceYamlFieldsEnum;
 };
 
-export type ExperiencesYamlEdge = {
-  next?: Maybe<ExperiencesYaml>;
-  node: ExperiencesYaml;
-  previous?: Maybe<ExperiencesYaml>;
+export type ExperienceYamlEdge = {
+  next?: Maybe<ExperienceYaml>;
+  node: ExperienceYaml;
+  previous?: Maybe<ExperienceYaml>;
 };
 
-export enum ExperiencesYamlFieldsEnum {
+export enum ExperienceYamlFieldsEnum {
   Id = "id",
   ParentId = "parent___id",
   ParentParentId = "parent___parent___id",
@@ -478,7 +480,7 @@ export enum ExperiencesYamlFieldsEnum {
   StartedAt = "startedAt",
   Url = "url",
   Pinned = "pinned",
-  IsJoined = "isJoined",
+  Type = "type",
   PhotoId = "photo___id",
   PhotoParentId = "photo___parent___id",
   PhotoParentParentId = "photo___parent___parent___id",
@@ -552,10 +554,12 @@ export enum ExperiencesYamlFieldsEnum {
   PhotoBirthtime = "photo___birthtime",
   PhotoUrl = "photo___url",
   PhotoPublicUrl = "photo___publicURL",
+  PhotoWidth = "photoWidth",
+  PhotoHeight = "photoHeight",
   Order = "order"
 }
 
-export type ExperiencesYamlFilterInput = {
+export type ExperienceYamlFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -568,22 +572,24 @@ export type ExperiencesYamlFilterInput = {
   startedAt?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
   pinned?: Maybe<BooleanQueryOperatorInput>;
-  isJoined?: Maybe<BooleanQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
   photo?: Maybe<FileFilterInput>;
+  photoWidth?: Maybe<IntQueryOperatorInput>;
+  photoHeight?: Maybe<IntQueryOperatorInput>;
   order?: Maybe<IntQueryOperatorInput>;
 };
 
-export type ExperiencesYamlGroupConnection = {
+export type ExperienceYamlGroupConnection = {
   totalCount: Scalars["Int"];
-  edges: Array<ExperiencesYamlEdge>;
-  nodes: Array<ExperiencesYaml>;
+  edges: Array<ExperienceYamlEdge>;
+  nodes: Array<ExperienceYaml>;
   pageInfo: PageInfo;
   field: Scalars["String"];
   fieldValue?: Maybe<Scalars["String"]>;
 };
 
-export type ExperiencesYamlSortInput = {
-  fields?: Maybe<Array<Maybe<ExperiencesYamlFieldsEnum>>>;
+export type ExperienceYamlSortInput = {
+  fields?: Maybe<Array<Maybe<ExperienceYamlFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
@@ -615,7 +621,7 @@ export type File = Node & {
   gid?: Maybe<Scalars["Int"]>;
   rdev?: Maybe<Scalars["Int"]>;
   blksize?: Maybe<Scalars["Int"]>;
-  ino?: Maybe<Scalars["Float"]>;
+  ino?: Maybe<Scalars["Int"]>;
   blocks?: Maybe<Scalars["Int"]>;
   atimeMs?: Maybe<Scalars["Float"]>;
   mtimeMs?: Maybe<Scalars["Float"]>;
@@ -630,8 +636,8 @@ export type File = Node & {
   publicURL?: Maybe<Scalars["String"]>;
   childrenStacksYaml?: Maybe<Array<Maybe<StacksYaml>>>;
   childImageSharp?: Maybe<ImageSharp>;
-  childrenExperiencesYaml?: Maybe<Array<Maybe<ExperiencesYaml>>>;
   childrenNavigationYaml?: Maybe<Array<Maybe<NavigationYaml>>>;
+  childrenExperienceYaml?: Maybe<Array<Maybe<ExperienceYaml>>>;
 };
 
 export type FileModifiedTimeArgs = {
@@ -867,7 +873,7 @@ export type FileFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<FloatQueryOperatorInput>;
+  ino?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -1893,14 +1899,14 @@ export type Query = {
   allDirectory?: Maybe<DirectoryConnection>;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp?: Maybe<ImageSharpConnection>;
-  stacksYaml?: Maybe<StacksYaml>;
-  allStacksYaml?: Maybe<StacksYamlConnection>;
   navigationYaml?: Maybe<NavigationYaml>;
   allNavigationYaml?: Maybe<NavigationYamlConnection>;
   instaNode?: Maybe<InstaNode>;
   allInstaNode?: Maybe<InstaNodeConnection>;
-  experiencesYaml?: Maybe<ExperiencesYaml>;
-  allExperiencesYaml?: Maybe<ExperiencesYamlConnection>;
+  experienceYaml?: Maybe<ExperienceYaml>;
+  allExperienceYaml?: Maybe<ExperienceYamlConnection>;
+  stacksYaml?: Maybe<StacksYaml>;
+  allStacksYaml?: Maybe<StacksYamlConnection>;
 };
 
 export type QueryFileArgs = {
@@ -1931,7 +1937,7 @@ export type QueryFileArgs = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<FloatQueryOperatorInput>;
+  ino?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -2046,7 +2052,7 @@ export type QueryDirectoryArgs = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<FloatQueryOperatorInput>;
+  ino?: Maybe<IntQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -2081,28 +2087,6 @@ export type QueryImageSharpArgs = {
 export type QueryAllImageSharpArgs = {
   filter?: Maybe<ImageSharpFilterInput>;
   sort?: Maybe<ImageSharpSortInput>;
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-};
-
-export type QueryStacksYamlArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  name_detail?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  logo?: Maybe<FileFilterInput>;
-  learnedAt?: Maybe<DateQueryOperatorInput>;
-  endedAt?: Maybe<StringQueryOperatorInput>;
-  desc?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type QueryAllStacksYamlArgs = {
-  filter?: Maybe<StacksYamlFilterInput>;
-  sort?: Maybe<StacksYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -2149,7 +2133,7 @@ export type QueryAllInstaNodeArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryExperiencesYamlArgs = {
+export type QueryExperienceYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2162,14 +2146,38 @@ export type QueryExperiencesYamlArgs = {
   startedAt?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
   pinned?: Maybe<BooleanQueryOperatorInput>;
-  isJoined?: Maybe<BooleanQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
   photo?: Maybe<FileFilterInput>;
+  photoWidth?: Maybe<IntQueryOperatorInput>;
+  photoHeight?: Maybe<IntQueryOperatorInput>;
   order?: Maybe<IntQueryOperatorInput>;
 };
 
-export type QueryAllExperiencesYamlArgs = {
-  filter?: Maybe<ExperiencesYamlFilterInput>;
-  sort?: Maybe<ExperiencesYamlSortInput>;
+export type QueryAllExperienceYamlArgs = {
+  filter?: Maybe<ExperienceYamlFilterInput>;
+  sort?: Maybe<ExperienceYamlSortInput>;
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+};
+
+export type QueryStacksYamlArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  name_detail?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  logo?: Maybe<FileFilterInput>;
+  learnedAt?: Maybe<DateQueryOperatorInput>;
+  endedAt?: Maybe<StringQueryOperatorInput>;
+  desc?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllStacksYamlArgs = {
+  filter?: Maybe<StacksYamlFilterInput>;
+  sort?: Maybe<StacksYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -3219,11 +3227,11 @@ export type PinnedExperienceListQueryVariables = {};
 
 export type PinnedExperienceListQuery = { __typename?: "Query" } & {
   experiences: Maybe<
-    { __typename?: "ExperiencesYamlConnection" } & {
+    { __typename?: "ExperienceYamlConnection" } & {
       edges: Array<
-        { __typename?: "ExperiencesYamlEdge" } & {
-          node: { __typename?: "ExperiencesYaml" } & Pick<
-            ExperiencesYaml,
+        { __typename?: "ExperienceYamlEdge" } & {
+          node: { __typename?: "ExperienceYaml" } & Pick<
+            ExperienceYaml,
             | "id"
             | "title"
             | "title_detail"
@@ -3289,29 +3297,31 @@ export type TimelineQueryVariables = {};
 
 export type TimelineQuery = { __typename?: "Query" } & {
   experiences: Maybe<
-    { __typename?: "ExperiencesYamlConnection" } & {
+    { __typename?: "ExperienceYamlConnection" } & {
       edges: Array<
-        { __typename?: "ExperiencesYamlEdge" } & {
-          node: { __typename?: "ExperiencesYaml" } & Pick<
-            ExperiencesYaml,
-            | "id"
-            | "title"
-            | "title_detail"
-            | "category"
-            | "desc"
-            | "location"
-            | "startedAt"
-            | "url"
-            | "pinned"
-            | "isJoined"
+        { __typename?: "ExperienceYamlEdge" } & {
+          node: { __typename?: "ExperienceYaml" } & Pick<
+            ExperienceYaml,
+            "id"
           > & {
-              photo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">>;
-            };
+              timelineStartedAt: ExperienceYaml["startedAt"];
+            } & TimelineContent_ExperienceYamlFragment;
         }
       >;
     }
   >;
 };
+
+export type JoinBox_ExperienceYamlFragment = {
+  __typename?: "ExperienceYaml";
+} & Pick<ExperienceYaml, "id" | "title" | "photoWidth" | "photoHeight"> & {
+    joinedAt: ExperienceYaml["startedAt"];
+  } & { photo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">> };
+
+export type TimelineContent_ExperienceYamlFragment = {
+  __typename?: "ExperienceYaml";
+} & Pick<ExperienceYaml, "id" | "type"> &
+  JoinBox_ExperienceYamlFragment;
 
 export type GatsbyImageSharpFixedFragment = {
   __typename?: "ImageSharpFixed";

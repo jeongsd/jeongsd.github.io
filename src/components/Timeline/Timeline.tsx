@@ -8,6 +8,7 @@ import { Organization, Location, Mail, Link } from '@githubprimer/octicons-react
 import { TimelineQuery } from '../../generated/graphql'
 import DateDivider from './DateDivider'
 import VerticalDivider from './VerticalDivider'
+import TimelineContent from '../TimelineContent'
 
 const Root = styled.div`
   /* display: flex;
@@ -23,7 +24,7 @@ const Timeline: React.SFC = () => {
 
   const groupByTimes = _.groupBy(experiences, node => {
     if (!node) return null
-    return DateTime.fromISO(node.startedAt).toFormat('LLLL yyyy')
+    return DateTime.fromISO(node.timelineStartedAt).toFormat('LLLL yyyy')
   });
 
   return (
@@ -37,9 +38,7 @@ const Timeline: React.SFC = () => {
                 return (
                   <ExperienceListItem key={experience.id}>
                     <VerticalDivider icon={Organization} />
-                    <div className="p-6">
-                      {experience.title}
-                    </div>
+                    <TimelineContent experience={experience} />
                   </ExperienceListItem>
                 )
               })}
@@ -55,22 +54,12 @@ export default Timeline
 
 export const query = graphql`
   query Timeline {
-    experiences: allExperiencesYaml(sort: { order: DESC, fields: [startedAt]  }) {
+    experiences: allExperienceYaml(sort: { order: DESC, fields: [startedAt]  }) {
       edges {
         node {
           id
-          title
-          title_detail
-          category
-          desc
-          location
-          startedAt(formatString: "YYYY-MM-DD")
-          url
-          pinned
-          isJoined
-          photo {
-            publicURL
-          }
+          timelineStartedAt: startedAt(formatString: "YYYY-MM-DD")
+          ...TimelineContent_ExperienceYaml
         }
       }
     }

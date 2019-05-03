@@ -59,7 +59,7 @@ export default PinnedExperienceList
 
 export const query = graphql`
   query PinnedExperienceList {
-    experiences: allExperiencesYaml(filter: { pinned: { eq: true } }) {
+    experiences: allExperienceYaml(filter: { pinned: { eq: true } }) {
       edges {
         node {
           id
