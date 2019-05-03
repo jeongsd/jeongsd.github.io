@@ -1,11 +1,12 @@
 import React from 'react'
+import { DateTime } from 'luxon'
 import Img from 'gatsby-image'
 import { Manager, Reference, Popper } from 'react-popper';
 import { oc } from 'ts-optchain'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import Popover from 'react-awesome-popover'
-import Octicon, { History } from '@githubprimer/octicons-react'
+import Octicon, { Calendar } from '@githubprimer/octicons-react'
 import { CommercialToolkitsListQuery } from '../generated/graphql'
 import { ChildImageSharp } from '../types'
 
@@ -42,9 +43,12 @@ const CommercialToolkitsList: React.SFC = () => {
     <Root>
       {commercialToolkits.map(({ node }) => {
         if (!node) return null
+
+        const learnedAt = DateTime.fromISO(node.learnedAt)
+
         return (
-          <Item>
-            <Popover key={node.id} action="hover" placement="top">
+          <Item key={node.id}>
+            <Popover action="hover" placement="top">
               <LinkWrapper >
                 <a href={node.url || undefined}>
                   <img
@@ -58,7 +62,7 @@ const CommercialToolkitsList: React.SFC = () => {
               </LinkWrapper>
               <Content>
                 <div>
-                  <div className="d-flex p-4 pb-1">
+                  <div className="d-flex px-4 pt-3 pb-2">
                     <div className="">
                       <img
                         className="avatar"
@@ -81,14 +85,14 @@ const CommercialToolkitsList: React.SFC = () => {
                       </Desc>
                     </div>
                   </div>
-                  <div className="border-top border-gray-light p-4">
+                  <div className="border-top border-gray-light px-4 pt-3 pb-2">
                     {/* <p className="text-gray">
                       {node.desc}
                     </p> */}
                     <div className="mr-3 d-flex flex-items-center">
-                      <Octicon icon={History} ariaLabel="Add new item" />
-                      <small className="f6 text-gray">
-                        Collaboration
+                      <Octicon icon={Calendar} ariaLabel="Add new item" />
+                      <small className="f6 text-gray ml-2">
+                        {learnedAt.isValid ? learnedAt.toFormat('yyyy.MM') : '알수없음'}
                       </small>
                     </div>
 

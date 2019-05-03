@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { animated, useSpring, config } from 'react-spring'
 import Layout from '../components/layout'
 import GridItem from '../components/grid-item'
+import PinnedExperienceList from '../components/PinnedExperienceList'
 import CommercialToolkitsList from '../components/CommercialToolkitsList'
 import { IndexQuery } from '../generated/graphql'
 import { ChildImageSharp } from '../types'
@@ -26,7 +27,6 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
     from: { opacity: 0 },
     to: { opacity: 1 },
   })
-  console.log(data.commercialToolkits)
 
   return (
     <div>
@@ -56,7 +56,21 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
           </div>
         </div>
         <div className="col-9 float-left pl-2">
-          Looks better
+          <nav className="UnderlineNav">
+            <div className="UnderlineNav-body">
+              <a href="#" role="tab" title="Item 1" className="UnderlineNav-item selected">Overview</a>
+              <a href="#experiences" role="tab" title="Item 2" className="UnderlineNav-item">Experiences</a>
+            </div>
+          </nav>
+          <div className="mt-4">
+            <h2 className="f4 mb-2 text-normal">
+              Pinned Experiences
+            </h2>
+            <div>
+              <PinnedExperienceList />
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,38 @@
+- title: "Ediket"
+  title_detail: "React・GraphQL・Relay"
+  category: "work"
+  desc: "주로 ediket.com 프론트엔드 개발을 하였으며 GraphQL 서버, 관리자 페이지, Android Hybrid PWA앱도 개발 하였습니다."
+  location: "Seoul"
+  startedAt: 2014-12-18
+  url: "https://ediket.com/"
+  pinned: true
+  order: 0
+
+- title: "SVWebGL at nVidia with Mr.Doob"
+  category: "meetup"
+  desc: "WebGL Developers Meetup"
+  location: "San Francisco, CA"
+  startedAt: 2016-09-29
+  url: "https://www.meetup.com/WebGL-Developers-Meetup/events/234336450/"
+  pinned: true
+  order: 1
+
+- title: "블랙라벨 데이팅"
+  title_detail: "React Native・Typescript・Apollo"
+  category: "work"
+  desc: "블랙라벨 데이팅 iOS/Android 앱 개발하였습니다."
+  location: "Seoul"
+  startedAt: 2018-10-21
+  url: "https://play.google.com/store/apps/details?id=com.blackLabel.blackLabelApp"
+  pinned: true
+  order: 2
+
+- title: "Apitii"
+  title_detail: "next.js・Prisma・Apollo"
+  category: "hobby"
+  desc: "취미로 만들고 있는 레시피 공유 사이트 입니다."
+  location: "Seoul"
+  startedAt: 2017-06-04
+  url: "https://apitii.com/"
+  pinned: true
+  order: 3
