@@ -3293,6 +3293,11 @@ export type Stack_StackFragment = { __typename?: "StacksYaml" } & Pick<
   "id" | "name" | "name_detail" | "url" | "learnedAt" | "endedAt" | "desc"
 > & { logo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">> };
 
+export type ExperienceGroupByType_ExperienceFragment = {
+  __typename?: "ExperienceYaml";
+} & Pick<ExperienceYaml, "id" | "type"> &
+  TimelineContent_ExperienceYamlFragment;
+
 export type TimelineQueryVariables = {};
 
 export type TimelineQuery = { __typename?: "Query" } & {
@@ -3314,9 +3319,12 @@ export type TimelineQuery = { __typename?: "Query" } & {
 
 export type JoinBox_ExperienceYamlFragment = {
   __typename?: "ExperienceYaml";
-} & Pick<ExperienceYaml, "id" | "title" | "photoWidth" | "photoHeight"> & {
-    joinedAt: ExperienceYaml["startedAt"];
-  } & { photo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">> };
+} & Pick<
+  ExperienceYaml,
+  "id" | "title" | "photoWidth" | "photoHeight" | "url"
+> & { joinedAt: ExperienceYaml["startedAt"] } & {
+    photo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">>;
+  };
 
 export type TimelineContent_ExperienceYamlFragment = {
   __typename?: "ExperienceYaml";

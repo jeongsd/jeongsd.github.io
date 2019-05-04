@@ -29,7 +29,6 @@ const BottomDivider = styled(Divider)`
   flex: 1;
 `
 
-
 type VerticalDivider = {
   icon: any;
 }

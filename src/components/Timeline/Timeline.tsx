@@ -7,15 +7,11 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Organization, Location, Mail, Link } from '@githubprimer/octicons-react'
 import { TimelineQuery } from '../../generated/graphql'
 import DateDivider from './DateDivider'
-import VerticalDivider from './VerticalDivider'
-import TimelineContent from '../TimelineContent'
+import ExperienceGroupByType from './ExperienceGroupByType'
 
 const Root = styled.div`
   /* display: flex;
   flex-wrap: wrap; */
-`
-const ExperienceListItem = styled.div`
-  display: flex;
 `
 
 const Timeline: React.SFC = () => {
@@ -34,14 +30,7 @@ const Timeline: React.SFC = () => {
           return (
             <React.Fragment key={date}>
               <DateDivider date={DateTime.fromFormat(date, 'LLLL yyyy')} />
-              {groupByTime.map(experience => {
-                return (
-                  <ExperienceListItem key={experience.id}>
-                    <VerticalDivider icon={Organization} />
-                    <TimelineContent experience={experience} />
-                  </ExperienceListItem>
-                )
-              })}
+              <ExperienceGroupByType experiences={groupByTime} />
             </React.Fragment>
           )
         })

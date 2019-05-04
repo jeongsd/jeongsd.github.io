@@ -35,7 +35,7 @@ const JoinBox: React.SFC<JoinBoxProps> = (props) => {
   if(!experience.photo) return null
 
   return (
-    <Root p={2} my={4} ml={4}>
+    <Root p={2}>
       {/* <Flex.Item>
         <h3 className="h6 pr-2 py-1">
           {date.toFormat('LLLL')} <span className="text-gray">{date.year}</span>
@@ -46,8 +46,8 @@ const JoinBox: React.SFC<JoinBoxProps> = (props) => {
       </Flex.Item> */}
       <ImageWrapper>
         <img
-          width={experience.photoWidth}
-          height={experience.photoHeight}
+          width={experience.photoWidth || undefined}
+          height={experience.photoHeight || undefined}
           src={experience.photo.publicURL || undefined}
         />
       </ImageWrapper>
@@ -55,9 +55,12 @@ const JoinBox: React.SFC<JoinBoxProps> = (props) => {
       <div>
 
       </div>
-      <Text as='h4' className="text-green" textAlign="center">
-        Joined {experience.title}
-      </Text>
+      <a href={experience.url}>
+        <Text as='h4' className="text-green" textAlign="center">
+          Joined {experience.title}
+        </Text>
+      </a>
+
       <DateText as='p' textAlign="center">
         on {experience.joinedAt}
       </DateText>
@@ -74,6 +77,7 @@ export const query = graphql`
     joinedAt: startedAt(formatString: "LL")
     photoWidth
     photoHeight
+    url
     photo {
       publicURL
     }
