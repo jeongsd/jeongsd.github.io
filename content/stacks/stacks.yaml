@@ -276,7 +276,7 @@
   logo: "./logos/docker.svg"
   learnedAt:
   endedAt: ""
-  desc: "당연히 사용해야 되고 좋은 건 알겠는데 할 때마다 문서를 다시 보는 게 귀찮다."
+  desc: "당연히 사용해야 되고 좋은 건 알지만 할 때마다 문서를 다시 보는 게 귀찮다."
   type: "previousExperienceIn"
 - name: "backbone"
   name_detail: "Give your JS App some Backbone with Models, Views, Collections, and Events "

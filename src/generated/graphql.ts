@@ -11349,14 +11349,14 @@ export type Query = {
   allDirectory?: Maybe<DirectoryConnection>;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp?: Maybe<ImageSharpConnection>;
-  stacksYaml?: Maybe<StacksYaml>;
-  allStacksYaml?: Maybe<StacksYamlConnection>;
   experienceYaml?: Maybe<ExperienceYaml>;
   allExperienceYaml?: Maybe<ExperienceYamlConnection>;
   navigationYaml?: Maybe<NavigationYaml>;
   allNavigationYaml?: Maybe<NavigationYamlConnection>;
   instaNode?: Maybe<InstaNode>;
   allInstaNode?: Maybe<InstaNodeConnection>;
+  stacksYaml?: Maybe<StacksYaml>;
+  allStacksYaml?: Maybe<StacksYamlConnection>;
   github?: Maybe<GitHub>;
 };
 
@@ -11558,28 +11558,6 @@ export type QueryAllImageSharpArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryStacksYamlArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  name_detail?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  logo?: Maybe<FileFilterInput>;
-  learnedAt?: Maybe<DateQueryOperatorInput>;
-  endedAt?: Maybe<StringQueryOperatorInput>;
-  desc?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type QueryAllStacksYamlArgs = {
-  filter?: Maybe<StacksYamlFilterInput>;
-  sort?: Maybe<StacksYamlSortInput>;
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-};
-
 export type QueryExperienceYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -11645,6 +11623,28 @@ export type QueryInstaNodeArgs = {
 export type QueryAllInstaNodeArgs = {
   filter?: Maybe<InstaNodeFilterInput>;
   sort?: Maybe<InstaNodeSortInput>;
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+};
+
+export type QueryStacksYamlArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  name_detail?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  logo?: Maybe<FileFilterInput>;
+  learnedAt?: Maybe<DateQueryOperatorInput>;
+  endedAt?: Maybe<StringQueryOperatorInput>;
+  desc?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllStacksYamlArgs = {
+  filter?: Maybe<StacksYamlFilterInput>;
+  sort?: Maybe<StacksYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -12772,31 +12772,6 @@ export type PreviousExperienceInListQuery = { __typename?: "Query" } & {
         }
       >;
     }
-  >;
-};
-
-export type SeoQueryVariables = {};
-
-export type SeoQuery = { __typename?: "Query" } & {
-  site: Maybe<
-    { __typename?: "Site" } & Pick<Site, "buildTime"> & {
-        siteMetadata: Maybe<
-          { __typename?: "SiteSiteMetadata" } & Pick<
-            SiteSiteMetadata,
-            | "siteUrl"
-            | "headline"
-            | "siteLanguage"
-            | "ogLanguage"
-            | "author"
-            | "twitter"
-            | "facebook"
-          > & {
-              defaultTitle: SiteSiteMetadata["titleAlt"];
-              defaultDescription: SiteSiteMetadata["description"];
-              defaultBanner: SiteSiteMetadata["logo"];
-            }
-        >;
-      }
   >;
 };
 

@@ -10,15 +10,24 @@ import Timeline from '../components/Timeline'
 import DabbledWithList from '../components/DabbledWithList'
 import GithubHeatmap from '../components/GithubHeatmap'
 import avatar from '../images/avatar.png'
+import logo from '../images/logo.svg'
 
 type PageProps = {
 }
 
-const Main = styled.div`
+const Toolbar = styled.div`
   max-width: 1012px;
   width: 100%;
   margin: auto;
   display: flex;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+`
+const Logo = styled.img`
+  width: 35px;
+  height: 35px;
+  margin-right: 16px;
 `
 const Container = styled.div`
   max-width: 1012px;
@@ -43,7 +52,11 @@ const Left = styled.div`
 const ImgWrapper = styled.div`
   max-width: 400px;
   margin: auto;
-
+`
+const NameWrapper = styled.div`
+  @media screen and (max-width: 960px) {
+    text-align: center;
+  }
 `
 const Right = styled.div`
   flex: 1;
@@ -58,26 +71,27 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
 
   return (
     <div>
-      <header className="bg-gray-dark text-white p-3 mb-2">
-        <Main className="px-3">
+      <header className="bg-gray-dark text-white px-3 mb-2">
+        <Toolbar className="px-2">
+          <Logo src={logo} />
           <h1 className="h4 f5 text-white text-bold">
             Jeong Seong Dae · Web Software Enginner
           </h1>
-        </Main>
+        </Toolbar>
       </header>
       <Container className="mt-4">
         <Left>
           <ImgWrapper>
             <img className="avatar width-full border" src={avatar} alt="jeongsd github" />
           </ImgWrapper>
-          <div className="py-3">
+          <NameWrapper className="py-3">
             <h1 className="h2 d-block">
               Jeong Seong Dae
             </h1>
             <h2 className="h3 f3-light text-gray">
               Full Stack Developer ・ JavaScript
             </h2>
-          </div>
+          </NameWrapper>
 
           <ul className="border-top border-gray-light pt-3 mb-3">
             <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
