@@ -5,7 +5,7 @@ import { oc } from 'ts-optchain'
 import { Text, Box } from '@primer/components'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Organization, Location, Mail, Link } from '@githubprimer/octicons-react'
+import { Organization, Rocket, Location, Mail, Link } from '@githubprimer/octicons-react'
 import { ExperienceGroupByType_ExperienceFragment } from '../../generated/graphql'
 import VerticalDivider from './VerticalDivider'
 import TimelineContent from '../TimelineContent'
@@ -33,7 +33,7 @@ const ExperienceGroupByType: React.SFC<ExperienceGroupByType> = (props) => {
     if (type === 'join') {
       return `Joined ${experiencesByType[0].title}`
     }
-    return ''
+    return type
   }
 
   const groupByType = _.groupBy(experiences, node => node.type);
@@ -44,12 +44,17 @@ const ExperienceGroupByType: React.SFC<ExperienceGroupByType> = (props) => {
         if (!experiencesByType) return null
 
         return (
-          <>
-
+          <React.Fragment key={type}>
             {
               experiencesByType.map(experience => (
                 <ExperienceListItem key={experience.id}>
-                  <VerticalDivider icon={Organization} />
+                  <VerticalDivider
+                    icon={{
+                      join: Organization,
+                      meetup: Location,
+                      launch: Rocket,
+                    }[type]}
+                  />
                   <ContentAndText my={3} ml={3}>
                     <h4 className="text-normal text-gray pr-3 my-0 mb-3">
                       {getTypeLabel(experiencesByType, type)}
@@ -59,7 +64,7 @@ const ExperienceGroupByType: React.SFC<ExperienceGroupByType> = (props) => {
                 </ExperienceListItem>
               ))
             }
-          </>
+          </React.Fragment>
         )
       })}
     </Root>

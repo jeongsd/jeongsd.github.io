@@ -26,6 +26,21 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // This type will contain remote schema Query type
+        typeName: 'GitHub',
+        // This is the field under which it's accessible
+        fieldName: 'github',
+        // URL to query from
+        url: 'https://api.github.com/graphql',
+        headers: {
+          // Learn about environment variables: https://gatsby.dev/env-vars
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        },
+      },
+    },
     'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-source-filesystem',

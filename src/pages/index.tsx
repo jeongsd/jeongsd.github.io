@@ -8,7 +8,8 @@ import CommercialToolkitsList from '../components/CommercialToolkitsList'
 import PreviousExperienceInList from '../components/PreviousExperienceInList'
 import Timeline from '../components/Timeline'
 import DabbledWithList from '../components/DabbledWithList'
-// import { IndexQuery } from '../generated/graphql'
+import GithubHeatmap from '../components/GithubHeatmap'
+import avatar from '../images/avatar.png'
 
 type PageProps = {
 }
@@ -19,10 +20,34 @@ const Main = styled.div`
   margin: auto;
   display: flex;
 `
-// const StyledOcticon = styled(Octicon)`
-//   width: 16px;
-// `
+const Container = styled.div`
+  max-width: 1012px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  padding-left: 16px;
+  padding-right: 16px;
+  flex-wrap: wrap;
+`
+const Left = styled.div`
+  /* flex: 1 0 25%; */
+  max-width: 256px;
+  width: 100%;
+  padding-right: 16px;
+  @media screen and (max-width: 960px) {
+    padding-right: 0px;
+    max-width: 100%;
+  }
+`
+const ImgWrapper = styled.div`
+  max-width: 400px;
+  margin: auto;
 
+`
+const Right = styled.div`
+  flex: 1;
+`
 
 const Index: React.FunctionComponent<PageProps> = ({ data }) => {
   const pageAnimation = useSpring({
@@ -40,10 +65,13 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
           </h1>
         </Main>
       </header>
-      <div className="container-lg clearfix mt-4">
-        <div className="h-card col-3 float-left pr-3">
+      <Container className="mt-4">
+        <Left>
+          <ImgWrapper>
+            <img className="avatar width-full border" src={avatar} alt="jeongsd github" />
+          </ImgWrapper>
           <div className="py-3">
-            <h1 className="h2 d-block overflow-hidden">
+            <h1 className="h2 d-block">
               Jeong Seong Dae
             </h1>
             <h2 className="h3 f3-light text-gray">
@@ -95,8 +123,8 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
             </h2>
             <DabbledWithList />
           </div>
-        </div>
-        <div className="col-9 float-left pl-2">
+        </Left>
+        <Right className="pl-2">
           <nav className="UnderlineNav">
             <div className="UnderlineNav-body">
               <a href="#" role="tab" title="Item 1" className="UnderlineNav-item selected">Overview</a>
@@ -113,6 +141,10 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
           </div>
 
           <div className="mt-4">
+            <GithubHeatmap />
+          </div>
+
+          <div className="mt-4">
             <h2 className="f4 mb-2 text-normal">
               Experience activity
             </h2>
@@ -121,10 +153,8 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
               <PinnedExperienceList />
             </div> */}
           </div>
-
-
-        </div>
-      </div>
+        </Right>
+      </Container>
     </div>
   )
 }

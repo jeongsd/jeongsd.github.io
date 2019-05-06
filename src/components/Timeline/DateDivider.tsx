@@ -14,7 +14,7 @@ type DateDividerProps = {
 
 const DateDivider: React.SFC<DateDividerProps> = (props) => {
   const { date } = props
-  console.log(date)
+
   return (
     <Flex flexWrap="nowrap" alignItems="center">
       <Flex.Item>
