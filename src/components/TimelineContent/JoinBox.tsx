@@ -31,7 +31,7 @@ const JoinBox: React.SFC<JoinBoxProps> = (props) => {
   if(!experience.photo) return null
 
   return (
-    <Root p={2}>
+    <Root p={2} mt={3}>
       <ImageWrapper>
         <img
           width={experience.photoWidth || undefined}

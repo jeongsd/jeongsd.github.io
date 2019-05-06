@@ -1,6 +1,7 @@
 import React from 'react'
-import { Organization, Location, Mail, Link } from '@githubprimer/octicons-react'
+import { Organization, Location, Mail, Link as LinkIcon } from '@githubprimer/octicons-react'
 import styled from 'styled-components'
+import { Link } from "gatsby"
 import { StyledOcticon } from '@primer/components'
 import { useSpring, config } from 'react-spring'
 import PinnedExperienceList from '../components/PinnedExperienceList'
@@ -113,7 +114,7 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
               </a>
             </li>
             <li className="d-flex flex-row flex-items-center flex-justify-start pt-1">
-              <StyledOcticon size={16} ml={1} mr={2} icon={Link} />
+              <StyledOcticon size={16} ml={1} mr={2} icon={LinkIcon} />
               <a rel="nofollow me" href="https://github.com/jeongsd">https://github.com/jeongsd</a>
             </li>
           </ul>
@@ -141,8 +142,12 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
         <Right className="pl-2">
           <nav className="UnderlineNav">
             <div className="UnderlineNav-body">
-              <a href="#" role="tab" title="Item 1" className="UnderlineNav-item selected">Overview</a>
-              <a href="#experiences" role="tab" title="Item 2" className="UnderlineNav-item">Experiences</a>
+              <Link to="/" role="tab" title="Overview" className="UnderlineNav-item" activeClassName="selected">
+                Overview
+              </Link>
+              <Link to="/#experiences" role="tab" title="Experiences" className="UnderlineNav-item" activeClassName="selected">
+                Experiences
+              </Link>
             </div>
           </nav>
           <div className="mt-4">
@@ -159,7 +164,7 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
           </div>
 
           <div className="mt-4">
-            <h2 className="f4 mb-2 text-normal">
+            <h2 className="f4 mb-2 text-normal" id="experiences">
               Experience activity
             </h2>
             <Timeline />

@@ -361,6 +361,8 @@ export type ExperienceYaml = Node & {
   location?: Maybe<Scalars["String"]>;
   startedAt?: Maybe<Scalars["Date"]>;
   url?: Maybe<Scalars["String"]>;
+  appStore?: Maybe<Scalars["String"]>;
+  playStore?: Maybe<Scalars["String"]>;
   pinned?: Maybe<Scalars["Boolean"]>;
   type?: Maybe<Scalars["String"]>;
   photo?: Maybe<File>;
@@ -495,6 +497,8 @@ export enum ExperienceYamlFieldsEnum {
   Location = "location",
   StartedAt = "startedAt",
   Url = "url",
+  AppStore = "appStore",
+  PlayStore = "playStore",
   Pinned = "pinned",
   Type = "type",
   PhotoId = "photo___id",
@@ -587,6 +591,8 @@ export type ExperienceYamlFilterInput = {
   location?: Maybe<StringQueryOperatorInput>;
   startedAt?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
+  appStore?: Maybe<StringQueryOperatorInput>;
+  playStore?: Maybe<StringQueryOperatorInput>;
   pinned?: Maybe<BooleanQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
   photo?: Maybe<FileFilterInput>;
@@ -653,7 +659,6 @@ export type File = Node & {
   childrenStacksYaml?: Maybe<Array<Maybe<StacksYaml>>>;
   childImageSharp?: Maybe<ImageSharp>;
   childrenExperienceYaml?: Maybe<Array<Maybe<ExperienceYaml>>>;
-  childrenNavigationYaml?: Maybe<Array<Maybe<NavigationYaml>>>;
 };
 
 export type FileModifiedTimeArgs = {
@@ -11137,154 +11142,6 @@ export type IntQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars["Int"]>>>;
 };
 
-export type NavigationYaml = Node & {
-  id: Scalars["ID"];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  name?: Maybe<Scalars["String"]>;
-  link?: Maybe<Scalars["String"]>;
-};
-
-export type NavigationYamlConnection = {
-  totalCount: Scalars["Int"];
-  edges: Array<NavigationYamlEdge>;
-  nodes: Array<NavigationYaml>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars["String"]>;
-  group: Array<NavigationYamlGroupConnection>;
-};
-
-export type NavigationYamlConnectionDistinctArgs = {
-  field: NavigationYamlFieldsEnum;
-};
-
-export type NavigationYamlConnectionGroupArgs = {
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-  field: NavigationYamlFieldsEnum;
-};
-
-export type NavigationYamlEdge = {
-  next?: Maybe<NavigationYaml>;
-  node: NavigationYaml;
-  previous?: Maybe<NavigationYaml>;
-};
-
-export enum NavigationYamlFieldsEnum {
-  Id = "id",
-  ParentId = "parent___id",
-  ParentParentId = "parent___parent___id",
-  ParentParentParentId = "parent___parent___parent___id",
-  ParentParentParentChildren = "parent___parent___parent___children",
-  ParentParentChildren = "parent___parent___children",
-  ParentParentChildrenId = "parent___parent___children___id",
-  ParentParentChildrenChildren = "parent___parent___children___children",
-  ParentParentInternalContent = "parent___parent___internal___content",
-  ParentParentInternalContentDigest = "parent___parent___internal___contentDigest",
-  ParentParentInternalDescription = "parent___parent___internal___description",
-  ParentParentInternalFieldOwners = "parent___parent___internal___fieldOwners",
-  ParentParentInternalIgnoreType = "parent___parent___internal___ignoreType",
-  ParentParentInternalMediaType = "parent___parent___internal___mediaType",
-  ParentParentInternalOwner = "parent___parent___internal___owner",
-  ParentParentInternalType = "parent___parent___internal___type",
-  ParentChildren = "parent___children",
-  ParentChildrenId = "parent___children___id",
-  ParentChildrenParentId = "parent___children___parent___id",
-  ParentChildrenParentChildren = "parent___children___parent___children",
-  ParentChildrenChildren = "parent___children___children",
-  ParentChildrenChildrenId = "parent___children___children___id",
-  ParentChildrenChildrenChildren = "parent___children___children___children",
-  ParentChildrenInternalContent = "parent___children___internal___content",
-  ParentChildrenInternalContentDigest = "parent___children___internal___contentDigest",
-  ParentChildrenInternalDescription = "parent___children___internal___description",
-  ParentChildrenInternalFieldOwners = "parent___children___internal___fieldOwners",
-  ParentChildrenInternalIgnoreType = "parent___children___internal___ignoreType",
-  ParentChildrenInternalMediaType = "parent___children___internal___mediaType",
-  ParentChildrenInternalOwner = "parent___children___internal___owner",
-  ParentChildrenInternalType = "parent___children___internal___type",
-  ParentInternalContent = "parent___internal___content",
-  ParentInternalContentDigest = "parent___internal___contentDigest",
-  ParentInternalDescription = "parent___internal___description",
-  ParentInternalFieldOwners = "parent___internal___fieldOwners",
-  ParentInternalIgnoreType = "parent___internal___ignoreType",
-  ParentInternalMediaType = "parent___internal___mediaType",
-  ParentInternalOwner = "parent___internal___owner",
-  ParentInternalType = "parent___internal___type",
-  Children = "children",
-  ChildrenId = "children___id",
-  ChildrenParentId = "children___parent___id",
-  ChildrenParentParentId = "children___parent___parent___id",
-  ChildrenParentParentChildren = "children___parent___parent___children",
-  ChildrenParentChildren = "children___parent___children",
-  ChildrenParentChildrenId = "children___parent___children___id",
-  ChildrenParentChildrenChildren = "children___parent___children___children",
-  ChildrenParentInternalContent = "children___parent___internal___content",
-  ChildrenParentInternalContentDigest = "children___parent___internal___contentDigest",
-  ChildrenParentInternalDescription = "children___parent___internal___description",
-  ChildrenParentInternalFieldOwners = "children___parent___internal___fieldOwners",
-  ChildrenParentInternalIgnoreType = "children___parent___internal___ignoreType",
-  ChildrenParentInternalMediaType = "children___parent___internal___mediaType",
-  ChildrenParentInternalOwner = "children___parent___internal___owner",
-  ChildrenParentInternalType = "children___parent___internal___type",
-  ChildrenChildren = "children___children",
-  ChildrenChildrenId = "children___children___id",
-  ChildrenChildrenParentId = "children___children___parent___id",
-  ChildrenChildrenParentChildren = "children___children___parent___children",
-  ChildrenChildrenChildren = "children___children___children",
-  ChildrenChildrenChildrenId = "children___children___children___id",
-  ChildrenChildrenChildrenChildren = "children___children___children___children",
-  ChildrenChildrenInternalContent = "children___children___internal___content",
-  ChildrenChildrenInternalContentDigest = "children___children___internal___contentDigest",
-  ChildrenChildrenInternalDescription = "children___children___internal___description",
-  ChildrenChildrenInternalFieldOwners = "children___children___internal___fieldOwners",
-  ChildrenChildrenInternalIgnoreType = "children___children___internal___ignoreType",
-  ChildrenChildrenInternalMediaType = "children___children___internal___mediaType",
-  ChildrenChildrenInternalOwner = "children___children___internal___owner",
-  ChildrenChildrenInternalType = "children___children___internal___type",
-  ChildrenInternalContent = "children___internal___content",
-  ChildrenInternalContentDigest = "children___internal___contentDigest",
-  ChildrenInternalDescription = "children___internal___description",
-  ChildrenInternalFieldOwners = "children___internal___fieldOwners",
-  ChildrenInternalIgnoreType = "children___internal___ignoreType",
-  ChildrenInternalMediaType = "children___internal___mediaType",
-  ChildrenInternalOwner = "children___internal___owner",
-  ChildrenInternalType = "children___internal___type",
-  InternalContent = "internal___content",
-  InternalContentDigest = "internal___contentDigest",
-  InternalDescription = "internal___description",
-  InternalFieldOwners = "internal___fieldOwners",
-  InternalIgnoreType = "internal___ignoreType",
-  InternalMediaType = "internal___mediaType",
-  InternalOwner = "internal___owner",
-  InternalType = "internal___type",
-  Name = "name",
-  Link = "link"
-}
-
-export type NavigationYamlFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  link?: Maybe<StringQueryOperatorInput>;
-};
-
-export type NavigationYamlGroupConnection = {
-  totalCount: Scalars["Int"];
-  edges: Array<NavigationYamlEdge>;
-  nodes: Array<NavigationYaml>;
-  pageInfo: PageInfo;
-  field: Scalars["String"];
-  fieldValue?: Maybe<Scalars["String"]>;
-};
-
-export type NavigationYamlSortInput = {
-  fields?: Maybe<Array<Maybe<NavigationYamlFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
 /** Node Interface */
 export type Node = {
   id: Scalars["ID"];
@@ -11349,14 +11206,12 @@ export type Query = {
   allDirectory?: Maybe<DirectoryConnection>;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp?: Maybe<ImageSharpConnection>;
-  experienceYaml?: Maybe<ExperienceYaml>;
-  allExperienceYaml?: Maybe<ExperienceYamlConnection>;
-  navigationYaml?: Maybe<NavigationYaml>;
-  allNavigationYaml?: Maybe<NavigationYamlConnection>;
-  instaNode?: Maybe<InstaNode>;
-  allInstaNode?: Maybe<InstaNodeConnection>;
   stacksYaml?: Maybe<StacksYaml>;
   allStacksYaml?: Maybe<StacksYamlConnection>;
+  instaNode?: Maybe<InstaNode>;
+  allInstaNode?: Maybe<InstaNodeConnection>;
+  experienceYaml?: Maybe<ExperienceYaml>;
+  allExperienceYaml?: Maybe<ExperienceYamlConnection>;
   github?: Maybe<GitHub>;
 };
 
@@ -11558,45 +11413,24 @@ export type QueryAllImageSharpArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryExperienceYamlArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  title_detail?: Maybe<StringQueryOperatorInput>;
-  category?: Maybe<StringQueryOperatorInput>;
-  desc?: Maybe<StringQueryOperatorInput>;
-  location?: Maybe<StringQueryOperatorInput>;
-  startedAt?: Maybe<DateQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  pinned?: Maybe<BooleanQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-  photo?: Maybe<FileFilterInput>;
-  photoWidth?: Maybe<IntQueryOperatorInput>;
-  photoHeight?: Maybe<IntQueryOperatorInput>;
-  order?: Maybe<IntQueryOperatorInput>;
-};
-
-export type QueryAllExperienceYamlArgs = {
-  filter?: Maybe<ExperienceYamlFilterInput>;
-  sort?: Maybe<ExperienceYamlSortInput>;
-  skip?: Maybe<Scalars["Int"]>;
-  limit?: Maybe<Scalars["Int"]>;
-};
-
-export type QueryNavigationYamlArgs = {
+export type QueryStacksYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   name?: Maybe<StringQueryOperatorInput>;
-  link?: Maybe<StringQueryOperatorInput>;
+  name_detail?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  logo?: Maybe<FileFilterInput>;
+  learnedAt?: Maybe<DateQueryOperatorInput>;
+  endedAt?: Maybe<StringQueryOperatorInput>;
+  desc?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
 };
 
-export type QueryAllNavigationYamlArgs = {
-  filter?: Maybe<NavigationYamlFilterInput>;
-  sort?: Maybe<NavigationYamlSortInput>;
+export type QueryAllStacksYamlArgs = {
+  filter?: Maybe<StacksYamlFilterInput>;
+  sort?: Maybe<StacksYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -11627,24 +11461,31 @@ export type QueryAllInstaNodeArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
-export type QueryStacksYamlArgs = {
+export type QueryExperienceYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  name_detail?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  logo?: Maybe<FileFilterInput>;
-  learnedAt?: Maybe<DateQueryOperatorInput>;
-  endedAt?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  title_detail?: Maybe<StringQueryOperatorInput>;
+  category?: Maybe<StringQueryOperatorInput>;
   desc?: Maybe<StringQueryOperatorInput>;
+  location?: Maybe<StringQueryOperatorInput>;
+  startedAt?: Maybe<DateQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  appStore?: Maybe<StringQueryOperatorInput>;
+  playStore?: Maybe<StringQueryOperatorInput>;
+  pinned?: Maybe<BooleanQueryOperatorInput>;
   type?: Maybe<StringQueryOperatorInput>;
+  photo?: Maybe<FileFilterInput>;
+  photoWidth?: Maybe<IntQueryOperatorInput>;
+  photoHeight?: Maybe<IntQueryOperatorInput>;
+  order?: Maybe<IntQueryOperatorInput>;
 };
 
-export type QueryAllStacksYamlArgs = {
-  filter?: Maybe<StacksYamlFilterInput>;
-  sort?: Maybe<StacksYamlSortInput>;
+export type QueryAllExperienceYamlArgs = {
+  filter?: Maybe<ExperienceYamlFilterInput>;
+  sort?: Maybe<ExperienceYamlSortInput>;
   skip?: Maybe<Scalars["Int"]>;
   limit?: Maybe<Scalars["Int"]>;
 };
@@ -12813,10 +12654,25 @@ export type JoinBox_ExperienceYamlFragment = {
     photo: Maybe<{ __typename?: "File" } & Pick<File, "publicURL">>;
   };
 
+export type Launch_ExperienceYamlFragment = {
+  __typename?: "ExperienceYaml";
+} & Pick<
+  ExperienceYaml,
+  "id" | "title" | "location" | "type" | "appStore" | "playStore" | "url"
+> & { launchAt: ExperienceYaml["startedAt"] };
+
+export type Meetup_ExperienceYamlFragment = {
+  __typename?: "ExperienceYaml";
+} & Pick<ExperienceYaml, "id" | "title" | "location" | "url"> & {
+    meetupAt: ExperienceYaml["startedAt"];
+  };
+
 export type TimelineContent_ExperienceYamlFragment = {
   __typename?: "ExperienceYaml";
 } & Pick<ExperienceYaml, "id" | "type"> &
-  JoinBox_ExperienceYamlFragment;
+  (JoinBox_ExperienceYamlFragment &
+    Meetup_ExperienceYamlFragment &
+    Launch_ExperienceYamlFragment);
 
 export type GatsbyImageSharpFixedFragment = {
   __typename?: "ImageSharpFixed";

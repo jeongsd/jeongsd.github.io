@@ -6,6 +6,9 @@ import {
   TimelineContent_ExperienceYamlFragment
 } from '../../generated/graphql'
 import JoinBox from './JoinBox'
+import Meetup from './Meetup'
+import Launch from './Launch'
+
 
 const Root = styled(Box)`
   flex-grow: 1;
@@ -22,6 +25,15 @@ const TimelineContent: React.SFC<TimelineContentProps> = (props) => {
     if (experience.type === 'join') {
       return <JoinBox experience={experience} />
     }
+    console.log(experience)
+    if (experience.type === 'meetup') {
+      return <Meetup experience={experience} />
+    }
+    if (experience.type === 'launch_app' || experience.type === 'launch_web') {
+      return <Launch experience={experience} />
+    }
+
+
     return null
   }
   return (
@@ -38,6 +50,8 @@ export const query = graphql`
     id
     type
     ...JoinBox_ExperienceYaml
+    ...Meetup_ExperienceYaml
+    ...Launch_ExperienceYaml
   }
 `
 

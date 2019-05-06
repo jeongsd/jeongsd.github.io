@@ -43,18 +43,12 @@ const Box = styled.li`
 
 const GithubHeatmap: React.SFC = () => {
   const data: GithubHeatmapQuery = useStaticQuery(query)
-  console.log(data)
-  // const commercialToolkits = oc(data).commercialToolkits.edges([])
-  // console.log(process.env.GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN)
   const totalContributions = oc(data).github.user.contributionsCollection.contributionCalendar.totalContributions(0)
   const startedAt = oc(data).github.user.contributionsCollection.startedAt(new Date())
   const weeks = oc(data).github.user.contributionsCollection.contributionCalendar.weeks([])
   const values = _.flatten(
     weeks.map(week => week.contributionDays.map(contributionDay => contributionDay))
   )
-  console.log()
-
-  // plus()
   return (
     <Root>
       <h2 className="f4 text-normal mb-2">

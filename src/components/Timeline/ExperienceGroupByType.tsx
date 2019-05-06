@@ -1,11 +1,9 @@
 import React from 'react'
 import _ from 'lodash'
-import { DateTime } from 'luxon'
-import { oc } from 'ts-optchain'
-import { Text, Box } from '@primer/components'
+import { Box } from '@primer/components'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Organization, Rocket, Location, Mail, Link } from '@githubprimer/octicons-react'
+import { graphql } from 'gatsby'
+import { Organization, Rocket, Location } from '@githubprimer/octicons-react'
 import { ExperienceGroupByType_ExperienceFragment } from '../../generated/graphql'
 import VerticalDivider from './VerticalDivider'
 import TimelineContent from '../TimelineContent'
@@ -52,11 +50,12 @@ const ExperienceGroupByType: React.SFC<ExperienceGroupByType> = (props) => {
                     icon={{
                       join: Organization,
                       meetup: Location,
-                      launch: Rocket,
+                      'launch_app': Rocket,
+                      'launch_web': Rocket,
                     }[type]}
                   />
                   <ContentAndText my={3} ml={3}>
-                    <h4 className="text-normal text-gray pr-3 my-0 mb-3">
+                    <h4 className="text-normal text-gray pr-3 my-0">
                       {getTypeLabel(experiencesByType, type)}
                     </h4>
                     <TimelineContent experience={experience} />
