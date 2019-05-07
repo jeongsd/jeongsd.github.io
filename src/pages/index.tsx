@@ -10,6 +10,7 @@ import PreviousExperienceInList from '../components/PreviousExperienceInList'
 import Timeline from '../components/Timeline'
 import DabbledWithList from '../components/DabbledWithList'
 import GithubHeatmap from '../components/GithubHeatmap'
+import Seo from '../components/Seo'
 import avatar from '../images/avatar.png'
 import logo from '../images/logo.svg'
 
@@ -62,6 +63,12 @@ const NameWrapper = styled.div`
 const Right = styled.div`
   flex: 1;
 `
+const Footer = styled.footer`
+  margin: auto;
+  max-width: 1012px;
+  width: 100%;
+  flex: 1;
+`
 
 const Index: React.FunctionComponent<PageProps> = ({ data }) => {
   const pageAnimation = useSpring({
@@ -72,6 +79,7 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
 
   return (
     <div>
+      <Seo />
       <header className="bg-gray-dark text-white px-3 mb-2">
         <Toolbar className="px-2">
           <Logo src={logo} />
@@ -92,6 +100,14 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
             <h2 className="h3 f3-light text-gray">
               Full Stack Developer ・ JavaScript
             </h2>
+            <a
+              className="btn btn-block mb-3 mt-3 text-center text-gray-dark no-underline"
+              role="button"
+              tabindex="0"
+              href="https://github.com/jeongsd/jeongsd.github.io"
+            >
+              View this site's repository
+            </a>
           </NameWrapper>
 
           <ul className="border-top border-gray-light pt-3 mb-3">
@@ -168,12 +184,34 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
               Experience activity
             </h2>
             <Timeline />
-            {/* <div>
-              <PinnedExperienceList />
-            </div> */}
+            <p className="text-gray f6 mt-1">
+              Think this site is an abomination and should be removed before
+              Github consider legal action? Try
+              {' '}
+              <a href="mailto:asdfg852456@gmail.com">email me</a>.
+            </p>
           </div>
         </Right>
       </Container>
+      <Footer className="mt-5 mb-6 pt-4 border-top">
+        <p>
+          This site is inspired by
+            {' '}
+            <a href="https://nataliemarleny.com">
+              https://nataliemarleny.com
+            </a>.
+        </p>
+        <p className="mb-2">
+          The Primer design system is available for use under the MIT
+          {' '}
+          <a href="https://github.com/primer/primer/blob/master/LICENSE">license</a>. Copyright GitHub 2016 - 2019.
+        </p>
+        <p className="mb-2">
+          Primer has been created and is maintained by GitHub's
+          {' '}
+          <a href="https://github.com/orgs/primer/people">Design Systems team</a>.
+        </p>
+      </Footer>
     </div>
   )
 }

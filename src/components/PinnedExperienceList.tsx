@@ -1,19 +1,17 @@
 import React from 'react'
-import { DateTime } from 'luxon'
-import Img from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 import { oc } from 'ts-optchain'
 import styled from 'styled-components'
 import Octicon, { Location, Calendar } from '@githubprimer/octicons-react'
 import { PinnedExperienceListQuery } from '../generated/graphql'
-import { ChildImageSharp } from '../types'
-
-// type PageProps = {
-//   data: IndexQuery
-// }
 
 const Item = styled.div`
   flex: 48%;
+  display: flex;
+  flex-direction: column;
+`
+const Desc = styled.div`
+  flex-grow: 1;
 `
 
 const PinnedExperienceList: React.SFC = () => {
@@ -26,14 +24,14 @@ const PinnedExperienceList: React.SFC = () => {
         if (!node) return null
         return (
           <Item key={node.id} className="p-3 mb-3 mr-2 border border-gray-dark rounded-1">
-            <a href={node.url} className="text-bold flex-auto">
+            <a href={node.url} className="text-bold">
               <span className="repo js-pinnable-item" title="react-timezone-map-gl">
                 {node.title}
               </span>
             </a>
-            <p className="text-gray text-small d-block mt-2 mb-3">
-            {node.desc}
-            </p>
+            <Desc className="text-gray text-small d-block mt-2 mb-3">
+              {node.desc}
+            </Desc>
             <div className="d-flex flex-row flex-justify-start">
               <div className="mr-3">
                 <Octicon className="ml-1 mr-2" icon={Location}/>

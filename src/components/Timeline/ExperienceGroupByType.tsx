@@ -31,6 +31,16 @@ const ExperienceGroupByType: React.SFC<ExperienceGroupByType> = (props) => {
     if (type === 'join') {
       return `Joined ${experiencesByType[0].title}`
     }
+    if (type === 'meetup') {
+      return `Joined ${experiencesByType.length} Meetup`
+    }
+    if (type === 'launch_app') {
+      return `Launched ${experiencesByType.length} App`
+    }
+    if (type === 'launch_web') {
+      return `Launched ${experiencesByType.length} Web`
+    }
+
     return type
   }
 

@@ -240,13 +240,40 @@
   desc: "e2e 테스트 할떄 더 이상 Selenium를 사용 안해도 된다. Node.js tool 😝😝"
   type: "commercialToolkit"
 
+- name: "moment"
+  name_detail: "Parse, validate, manipulate, and display dates and times in JavaScript."
+  url: "https://momentjs.com/"
+  logo: "./logos/momentjs.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "사실 요즘은 luxon을 더 많이 사용하긴 하지만 아직 로고가 없어서 예전에 주로 사용했던 moment를 올립니다."
+  type: "commercialToolkit"
+
+- name: "nodemon"
+  name_detail: "nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected."
+  url: "https://nodemon.io/"
+  logo: "./logos/nodemon.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "주로 서버 개발중에 코드 변경시 자동으로 서버 재시작 할때 사용합니다."
+  type: "commercialToolkit"
+
+- name: "PM2"
+  name_detail: "Advanced, production process manager for Node.js"
+  url: "http://pm2.keymetrics.io/"
+  logo: "./logos/pm2.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "주로 프로덕션 서버나 개발 서버 프로세스 매니져로 사용합니다."
+  type: "commercialToolkit"
+
 - name: "rehooks"
   name_detail: "React Hooks for Everything"
   url: "https://rehooks.com/"
   logo: "./logos/rehooks.png"
   learnedAt:
   endedAt: ""
-  desc: "function component를 더 즐겁게 만들수 있게됨"
+  desc: "function component를 더 즐겁게 만들수 있게 됨"
   type: "commercialToolkit"
 
 - name: "Github"
@@ -270,6 +297,14 @@
 # End commercialToolkit
 
 # Start previousExperienceIn
+- name: "WebGL"
+  name_detail: "WebGL is a cross-platform, royalty-free web standard for a low-level 3D graphics API based on OpenGL ES, exposed to ECMAScript via the HTML5 Canvas element."
+  url: "https://www.khronos.org/webgl/"
+  logo: "./logos/webgl.svg"
+  learnedAt:
+  endedAt: ""
+  desc: "지금은 다른 프로젝트를 하고 있어 미루고 있지만 나중에 다시 하고 싶은 것"
+  type: "previousExperienceIn"
 - name: "docker"
   name_detail: "Enterprise Container Platform for High-Velocity Innovation"
   url: "https://www.docker.com/"
@@ -486,25 +521,26 @@
   logo: "./logos/aws-cloudfront.svg"
   learnedAt:
   endedAt: ""
-  desc: "CDN 할떄 하는놈\n필요 할떄만 문서를 봐서 사용하는데 문서보기가 어렵다"
+  desc: "CDN 할떄 사용"
   type: "dabbledWith"
+
 - name: "Amazon S3"
   name_detail: "Object storage built to store and retrieve any amount of data from anywhere"
   url: "https://aws.amazon.com/s3/"
   logo: "./logos/aws-s3.svg"
   learnedAt:
   endedAt: ""
-  desc: "이것 저것 파일 올리기에 좋다."
+  desc: "이것 저것 파일 업로드시 사용"
   type: "dabbledWith"
 
-- name: "Amazon EC2"
-  name_detail: "Secure and resizable compute capacity in the cloud. Launch applications when needed without upfront commitments."
-  url: "https://aws.amazon.com/ec2/"
-  logo: "./logos/aws-ec2.svg"
-  learnedAt:
-  endedAt: ""
-  desc: "필요 할떄만 문서를 봐서 사용하는데 문서보기가 어렵다"
-  type: "dabbledWith"
+# - name: "Amazon EC2"
+#   name_detail: "Secure and resizable compute capacity in the cloud. Launch applications when needed without upfront commitments."
+#   url: "https://aws.amazon.com/ec2/"
+#   logo: "./logos/aws-ec2.svg"
+#   learnedAt:
+#   endedAt: ""
+#   desc: "필요 할떄만 문서를 봐서 사용하는데 문서보기가 어렵다"
+#   type: "dabbledWith"
 
 - name: "Amazon Route 53"
   name_detail: "A reliable and cost-effective way to route end users to Internet applications"
@@ -512,8 +548,16 @@
   logo: "./logos/aws-route53.svg"
   learnedAt:
   endedAt: ""
-  desc: "맨 앞에 있는놈, cloudfront에 보내거나\n주소를 필요 할떄만 문서를 봐서 사용하는데 문서보기가 어렵다"
+  desc: "맨 앞에 있는놈, cloudfront에 보내거나 load balancer에 연결할 떄 사용하였습니다."
   type: "dabbledWith"
 
-
+- name: "Amazon Elastic Container Registry"
+  name_detail: "Easily store, manage, and deploy container images"
+  url: "https://aws.amazon.com/ecr/"
+  logo: "./logos/ecr.png"
+  learnedAt:
+  endedAt: ""
+  desc: "Docker 컨테이너 이미지 올릴때 사용"
+  type: "dabbledWith"
+# Amazon Elastic Container Registry
 # End dabbledWith

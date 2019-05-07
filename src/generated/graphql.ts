@@ -12616,6 +12616,31 @@ export type PreviousExperienceInListQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type SeoQueryVariables = {};
+
+export type SeoQuery = { __typename?: "Query" } & {
+  site: Maybe<
+    { __typename?: "Site" } & Pick<Site, "buildTime"> & {
+        siteMetadata: Maybe<
+          { __typename?: "SiteSiteMetadata" } & Pick<
+            SiteSiteMetadata,
+            | "siteUrl"
+            | "headline"
+            | "siteLanguage"
+            | "ogLanguage"
+            | "author"
+            | "twitter"
+            | "facebook"
+          > & {
+              defaultTitle: SiteSiteMetadata["titleAlt"];
+              defaultDescription: SiteSiteMetadata["description"];
+              defaultBanner: SiteSiteMetadata["logo"];
+            }
+        >;
+      }
+  >;
+};
+
 export type Stack_StackFragment = { __typename?: "StacksYaml" } & Pick<
   StacksYaml,
   "id" | "name" | "name_detail" | "url" | "learnedAt" | "endedAt" | "desc"
