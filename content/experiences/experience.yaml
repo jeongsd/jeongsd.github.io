@@ -1,7 +1,7 @@
 - title: "Ediket"
   title_detail: "React・GraphQL・Relay"
   category: "work"
-  desc: "주로 ediket.com 프론트엔드 개발을 하였으며 GraphQL 서버, 관리자 페이지, Android Hybrid PWA앱도 개발 하였습니다."
+  desc: "주로 ediket.com 프론트엔드 개발을 하였으며 GraphQL 서버, 관리자 사이트, Android Hybrid PWA앱도 개발 하였습니다."
   location: "Seoul"
   startedAt: 2014-12-18
   url: "https://ediket.com/"

@@ -64,6 +64,8 @@ const Right = styled.div`
   flex: 1;
 `
 const Footer = styled.footer`
+  padding-left: 16px;
+  padding-right: 16px;
   margin: auto;
   max-width: 1012px;
   width: 100%;

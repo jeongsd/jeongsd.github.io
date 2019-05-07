@@ -33,7 +33,7 @@ const Launch: React.SFC<LaunchProps> = (props) => {
     return (
       <Root className="mt-1 py-1">
         <a href={experience.url} className="mr-2">
-          {experience.title}
+          {_.kebabCase(experience.title)}
         </a>
         <span className="f6 text-gray-light">
           <Ball style={{ backgroundColor: '#f1e05a' }} />
@@ -52,7 +52,7 @@ const Launch: React.SFC<LaunchProps> = (props) => {
       <>
         <Root className="mt-1 py-1">
           <a href={experience.appStore} className="mr-2">
-            {experience.title}/ios
+            {_.kebabCase(experience.title)}/ios
           </a>
           <span className="f6 text-gray-light">
             <Ball style={{ backgroundColor: '#0366d6' }} />
@@ -66,7 +66,7 @@ const Launch: React.SFC<LaunchProps> = (props) => {
         </Root>
         <Root className="mt-1 py-1">
           <a href={experience.playStore} className="mr-2">
-            {experience.title}/android
+            {_.kebabCase(experience.title)}/android
           </a>
           <span className="f6 text-gray-light">
             <Ball style={{ backgroundColor: '#ea4a5a' }} />
