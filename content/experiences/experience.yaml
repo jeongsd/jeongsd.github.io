@@ -4,10 +4,10 @@
   desc: "Online proofreading & English editing service marketplace."
   result:
     # - 'Software Engineer on https://ediket.com'
-    - 'Relay, GraphQL, Redux, Babel, CSS In Js등 새로운 프론트엔드 개발 스택 도입'
-    - '수동으로 관리하던 Webpack을 create-react-app으로 마이그레이션'
-    - '다양한 비즈니스 환경에 따른 프론트 엔드 aws db docker 빌드/배포 CLI 개발'
-    - 'e2e, unit 테스트 도입'
+    - 'Relay, GraphQL, Redux, Babel, CSS In JS등 새로운 프론트엔드 개발 스택 도입'
+    - '직접 관리하던 webpack config이나 build script같은 개발 환경을 create-react-app으로 마이그레이션'
+    - '다양한 비즈니스 환경에 따른 프론트엔드 aws db docker 빌드/배포 CLI 개발'
+    - '프론트엔드 e2e, unit 테스트 도입'
     - 'PWA를 이용한 모바일 웹 UI/성능 개선과 Android 앱 출시'
     - '기존 파이썬 서버에서 node.js, GraphQL, RethinkDB 으로 마이그레이션'
     - '관리자 사이트 개발 및 빌드/배포'
