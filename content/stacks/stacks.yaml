@@ -217,7 +217,7 @@
   name_detail: "webpack is a module bundler. "
   url: "https://webpack.js.org/"
   logo: "./logos/webpack.svg"
-  learnedAt:
+  learnedAt: 2015-06-12
   endedAt: ""
   desc: "처음 사용했을 때는 여러 파일들을 불러올 수 있고 다양하게 빌드를 할 수 있어서 신기했지만 요새는 config 설정하기가 귀찮다."
   type: "commercialToolkit"
