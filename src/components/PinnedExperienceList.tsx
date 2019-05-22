@@ -2,8 +2,12 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { oc } from 'ts-optchain'
 import styled from 'styled-components'
-import Octicon, { Location, Calendar } from '@githubprimer/octicons-react'
+import Octicon, { Person, Location, Calendar } from '@githubprimer/octicons-react'
 import { PinnedExperienceListQuery } from '../generated/graphql'
+
+// type PageProps = {
+//   data: IndexQuery
+// }
 
 const Item = styled.div`
   flex: 48%;
@@ -12,6 +16,10 @@ const Item = styled.div`
 `
 const Desc = styled.div`
   flex-grow: 1;
+`
+const Ul = styled.ul`
+  padding-left: 16px;
+  margin-top: 5px;
 `
 
 const PinnedExperienceList: React.SFC = () => {
@@ -29,16 +37,29 @@ const PinnedExperienceList: React.SFC = () => {
                 {node.title}
               </span>
             </a>
-            <Desc className="text-gray text-small d-block mt-2 mb-3">
+            <p className="text-gray text-small d-block mt-2 mb-3">
               {node.desc}
-            </Desc>
+              <Ul>
+                {(node.result || []).map(result => (
+                  <li key={result}>
+                    {result}
+                  </li>
+                ))}
+              </Ul>
+            </p>
             <div className="d-flex flex-row flex-justify-start">
               <div className="mr-3">
+                <Octicon className="ml-1 mr-2" icon={Person}/>
+                <small className="f6 text-gray">
+                  {node.role}
+                </small>
+              </div>
+              {/* <div className="mr-3">
                 <Octicon className="ml-1 mr-2" icon={Location}/>
                 <small className="f6 text-gray">
                   {node.location}
                 </small>
-              </div>
+              </div> */}
               <div className="mr-3 d-flex flex-items-center">
                 <Octicon icon={Calendar} ariaLabel="Add new item" />
                 <small className="f6 text-gray ml-2">
@@ -63,12 +84,14 @@ export const query = graphql`
           id
           title
           title_detail
+          result
           category
           desc
           location
           startedAt(formatString: "YYYY.MM")
           url
           pinned
+          role
         }
       }
     }

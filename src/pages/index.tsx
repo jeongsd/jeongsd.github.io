@@ -100,7 +100,7 @@ const Index: React.FunctionComponent<PageProps> = ({ data }) => {
               Jeong Seong Dae
             </h1>
             <h2 className="h3 f3-light text-gray">
-              Full Stack Developer ・ JavaScript
+              Front-End Developer ・ JavaScript
             </h2>
             <a
               className="btn btn-block mb-3 mt-3 text-center text-gray-dark no-underline"

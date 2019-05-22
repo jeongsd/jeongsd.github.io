@@ -1,7 +1,18 @@
 - title: "Ediket"
   title_detail: "React・GraphQL・Relay"
   category: "work"
-  desc: "주로 ediket.com 프론트엔드 개발을 하였으며 GraphQL 서버, 관리자 사이트, Android Hybrid PWA앱도 개발 하였습니다."
+  desc: "Online proofreading & English editing service marketplace."
+  result:
+    # - 'Software Engineer on https://ediket.com'
+    - 'Relay, GraphQL, Redux, Babel, CSS In JS등 새로운 프론트엔드 개발 스택 도입'
+    - '직접 관리하던 webpack config이나 build script같은 개발 환경을 create-react-app으로 마이그레이션'
+    - '다양한 비즈니스 환경에 따른 프론트엔드 aws db docker 빌드/배포 CLI 개발'
+    - '프론트엔드 e2e, unit 테스트 도입'
+    - 'PWA를 이용한 모바일 웹 UI/성능 개선과 Android 앱 출시'
+    - '기존 파이썬 서버에서 node.js, GraphQL, RethinkDB 으로 마이그레이션'
+    - '관리자 사이트 개발 및 빌드/배포'
+    - 'textract을 이용한 문서 파일 글자수 계산 serverless function 개발'
+    - '개발 의존성 라이브러리 버전 관리'
   location: "Seoul"
   startedAt: 2014-12-18
   url: "https://ediket.com/"
@@ -13,26 +24,18 @@
   photoWidth: 200
   photoHeight: 300
   order: 0
-
-- title: "SVWebGL at nVidia with Mr.Doob"
-  category: "meetup"
-  desc: "WebGL Developers Meetup"
-  location: "San Francisco, CA"
-  startedAt: 2016-09-29
-  url: "https://www.meetup.com/WebGL-Developers-Meetup/events/234336450/"
-  appStore:
-  playStore:
-  pinned: true
-  type: "meetup"
-  photo:
-  photoWidth:
-  photoHeight:
-  order: 1
+  role: 'Full Stack Developer'
 
 - title: "블랙라벨 데이팅"
   title_detail: "React Native・Typescript・Apollo"
   category: "work"
-  desc: "블랙라벨 데이팅 iOS/Android 앱 개발하였습니다."
+  desc: "고스펙 남성과 매력적인 여성을 위한 프리미엄 소개팅 어플."
+  result:
+    - 'React Native iOS/Android 개발 및 배포'
+    - 'Typescript 도입'
+    - 'Apollo 도입'
+    - '커밋시 linter, prettier 실행할 수 있는 lint-staged 도입'
+    - '관리자 사이트 개발 및 빌드'
   location: "Seoul"
   startedAt: 2019-02-07
   url: "https://play.google.com/store/apps/details?id=com.blackLabel.blackLabelApp"
@@ -43,12 +46,34 @@
   photo:
   photoWidth:
   photoHeight:
+  order: 1
+  role: 'Front End Developer'
+
+- title: "SVWebGL at nVidia with Mr.Doob"
+  category: "meetup"
+  desc: "WebGL Developers Meetup at NVIDIA, Santa Clara, CA."
+  location: "San Francisco, CA"
+  startedAt: 2016-09-29
+  url: "https://www.meetup.com/WebGL-Developers-Meetup/events/234336450/"
+  appStore:
+  playStore:
+  pinned: true
+  type: "meetup"
+  photo:
+  photoWidth:
+  photoHeight:
   order: 2
+  role: 'Attendees'
+
 
 - title: "Apitii"
   title_detail: "next.js・Prisma・Apollo"
   category: "hobby"
-  desc: "취미로 만들고 있는 레시피 공유 사이트 입니다."
+  desc: "레시피 공유 플랫폼 사이트."
+  result:
+    - 'Redux, Firebase 도입'
+    - 'Prisma, Next.js, Typescript, Apollo client, Graphql Yoga 으로 마이그레이션'
+    - 'SEO 개선'
   location: "Seoul"
   startedAt: 2018-11-04
   url: "https://apitii.com/"
@@ -60,3 +85,4 @@
   photoWidth:
   photoHeight:
   order: 3
+  role: 'Full Stack Developer'

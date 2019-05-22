@@ -74,7 +74,7 @@ export type Directory = Node & {
   gid?: Maybe<Scalars["Int"]>;
   rdev?: Maybe<Scalars["Int"]>;
   blksize?: Maybe<Scalars["Int"]>;
-  ino?: Maybe<Scalars["Int"]>;
+  ino?: Maybe<Scalars["Float"]>;
   blocks?: Maybe<Scalars["Int"]>;
   atimeMs?: Maybe<Scalars["Float"]>;
   mtimeMs?: Maybe<Scalars["Float"]>;
@@ -317,7 +317,7 @@ export type DirectoryFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<IntQueryOperatorInput>;
+  ino?: Maybe<FloatQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -358,6 +358,7 @@ export type ExperienceYaml = Node & {
   title_detail?: Maybe<Scalars["String"]>;
   category?: Maybe<Scalars["String"]>;
   desc?: Maybe<Scalars["String"]>;
+  result?: Maybe<Array<Maybe<Scalars["String"]>>>;
   location?: Maybe<Scalars["String"]>;
   startedAt?: Maybe<Scalars["Date"]>;
   url?: Maybe<Scalars["String"]>;
@@ -369,6 +370,7 @@ export type ExperienceYaml = Node & {
   photoWidth?: Maybe<Scalars["Int"]>;
   photoHeight?: Maybe<Scalars["Int"]>;
   order?: Maybe<Scalars["Int"]>;
+  role?: Maybe<Scalars["String"]>;
 };
 
 export type ExperienceYamlStartedAtArgs = {
@@ -494,6 +496,7 @@ export enum ExperienceYamlFieldsEnum {
   TitleDetail = "title_detail",
   Category = "category",
   Desc = "desc",
+  Result = "result",
   Location = "location",
   StartedAt = "startedAt",
   Url = "url",
@@ -576,7 +579,8 @@ export enum ExperienceYamlFieldsEnum {
   PhotoPublicUrl = "photo___publicURL",
   PhotoWidth = "photoWidth",
   PhotoHeight = "photoHeight",
-  Order = "order"
+  Order = "order",
+  Role = "role"
 }
 
 export type ExperienceYamlFilterInput = {
@@ -588,6 +592,7 @@ export type ExperienceYamlFilterInput = {
   title_detail?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   desc?: Maybe<StringQueryOperatorInput>;
+  result?: Maybe<StringQueryOperatorInput>;
   location?: Maybe<StringQueryOperatorInput>;
   startedAt?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
@@ -599,6 +604,7 @@ export type ExperienceYamlFilterInput = {
   photoWidth?: Maybe<IntQueryOperatorInput>;
   photoHeight?: Maybe<IntQueryOperatorInput>;
   order?: Maybe<IntQueryOperatorInput>;
+  role?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ExperienceYamlGroupConnection = {
@@ -643,7 +649,7 @@ export type File = Node & {
   gid?: Maybe<Scalars["Int"]>;
   rdev?: Maybe<Scalars["Int"]>;
   blksize?: Maybe<Scalars["Int"]>;
-  ino?: Maybe<Scalars["Int"]>;
+  ino?: Maybe<Scalars["Float"]>;
   blocks?: Maybe<Scalars["Int"]>;
   atimeMs?: Maybe<Scalars["Float"]>;
   mtimeMs?: Maybe<Scalars["Float"]>;
@@ -894,7 +900,7 @@ export type FileFilterInput = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<IntQueryOperatorInput>;
+  ino?: Maybe<FloatQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -11208,6 +11214,8 @@ export type Query = {
   allImageSharp?: Maybe<ImageSharpConnection>;
   instaNode?: Maybe<InstaNode>;
   allInstaNode?: Maybe<InstaNodeConnection>;
+  stacksYaml?: Maybe<StacksYaml>;
+  allStacksYaml?: Maybe<StacksYamlConnection>;
   experienceYaml?: Maybe<ExperienceYaml>;
   allExperienceYaml?: Maybe<ExperienceYamlConnection>;
   stacksYaml?: Maybe<StacksYaml>;
@@ -11243,7 +11251,7 @@ export type QueryFileArgs = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<IntQueryOperatorInput>;
+  ino?: Maybe<FloatQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -11374,7 +11382,7 @@ export type QueryDirectoryArgs = {
   gid?: Maybe<IntQueryOperatorInput>;
   rdev?: Maybe<IntQueryOperatorInput>;
   blksize?: Maybe<IntQueryOperatorInput>;
-  ino?: Maybe<IntQueryOperatorInput>;
+  ino?: Maybe<FloatQueryOperatorInput>;
   blocks?: Maybe<IntQueryOperatorInput>;
   atimeMs?: Maybe<FloatQueryOperatorInput>;
   mtimeMs?: Maybe<FloatQueryOperatorInput>;
@@ -11439,6 +11447,28 @@ export type QueryAllInstaNodeArgs = {
   limit?: Maybe<Scalars["Int"]>;
 };
 
+export type QueryStacksYamlArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  name_detail?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  logo?: Maybe<FileFilterInput>;
+  learnedAt?: Maybe<DateQueryOperatorInput>;
+  endedAt?: Maybe<StringQueryOperatorInput>;
+  desc?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllStacksYamlArgs = {
+  filter?: Maybe<StacksYamlFilterInput>;
+  sort?: Maybe<StacksYamlSortInput>;
+  skip?: Maybe<Scalars["Int"]>;
+  limit?: Maybe<Scalars["Int"]>;
+};
+
 export type QueryExperienceYamlArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -11448,6 +11478,7 @@ export type QueryExperienceYamlArgs = {
   title_detail?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   desc?: Maybe<StringQueryOperatorInput>;
+  result?: Maybe<StringQueryOperatorInput>;
   location?: Maybe<StringQueryOperatorInput>;
   startedAt?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
@@ -11459,6 +11490,7 @@ export type QueryExperienceYamlArgs = {
   photoWidth?: Maybe<IntQueryOperatorInput>;
   photoHeight?: Maybe<IntQueryOperatorInput>;
   order?: Maybe<IntQueryOperatorInput>;
+  role?: Maybe<StringQueryOperatorInput>;
 };
 
 export type QueryAllExperienceYamlArgs = {
@@ -12588,12 +12620,14 @@ export type PinnedExperienceListQuery = { __typename?: "Query" } & {
             | "id"
             | "title"
             | "title_detail"
+            | "result"
             | "category"
             | "desc"
             | "location"
             | "startedAt"
             | "url"
             | "pinned"
+            | "role"
           >;
         }
       >;
