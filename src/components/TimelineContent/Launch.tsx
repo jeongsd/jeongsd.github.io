@@ -50,34 +50,43 @@ const Launch: React.SFC<LaunchProps> = (props) => {
   if (experience.type === 'launch_app') {
     return (
       <>
-        <Root className="mt-1 py-1">
-          <a href={experience.appStore} className="mr-2">
-            {_.kebabCase(experience.title)}/ios
-          </a>
-          <span className="f6 text-gray-light">
-            <Ball style={{ backgroundColor: '#0366d6' }} />
-            {' '}
-            App Store
-          </span>
-          <FlexGrow />
-          <time className="float-right f6 text-gray-light pt-1">
-            {experience.launchAt}
-          </time>
-        </Root>
-        <Root className="mt-1 py-1">
-          <a href={experience.playStore} className="mr-2">
-            {_.kebabCase(experience.title)}/android
-          </a>
-          <span className="f6 text-gray-light">
-            <Ball style={{ backgroundColor: '#ea4a5a' }} />
-            {' '}
-            Google Play
-          </span>
-          <FlexGrow />
-          <time className="float-right f6 text-gray-light pt-1">
-            {experience.launchAt}
-          </time>
-        </Root>
+        {
+          experience.appStore && (
+            <Root className="mt-1 py-1">
+              <a href={experience.appStore} className="mr-2">
+                {_.kebabCase(experience.title)}/ios
+              </a>
+              <span className="f6 text-gray-light">
+                <Ball style={{ backgroundColor: '#0366d6' }} />
+                {' '}
+                App Store
+              </span>
+              <FlexGrow />
+              <time className="float-right f6 text-gray-light pt-1">
+                {experience.launchAt}
+              </time>
+            </Root>
+          )
+        }
+        {
+          experience.playStore && (
+            <Root className="mt-1 py-1">
+              <a href={experience.playStore} className="mr-2">
+                {_.kebabCase(experience.title)}/android
+              </a>
+              <span className="f6 text-gray-light">
+                <Ball style={{ backgroundColor: '#ea4a5a' }} />
+                {' '}
+                Google Play
+              </span>
+              <FlexGrow />
+              <time className="float-right f6 text-gray-light pt-1">
+                {experience.launchAt}
+              </time>
+            </Root>
+          )
+        }
+
       </>
 
     )

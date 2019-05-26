@@ -6,13 +6,14 @@
     # - 'Software Engineer on https://ediket.com'
     - 'Relay, GraphQL, Redux, Babel, CSS In JS등 새로운 프론트엔드 개발 스택 도입'
     - '직접 관리하던 webpack config이나 build script같은 개발 환경을 create-react-app으로 마이그레이션'
-    - '다양한 비즈니스 환경에 따른 프론트엔드 aws db docker 빌드/배포 CLI 개발'
+    - '다양한 비즈니스 환경에 따른 프론트엔드 AWS db docker 빌드/배포 CLI 개발'
     - '프론트엔드 e2e, unit 테스트 도입'
     - 'PWA를 이용한 모바일 웹 UI/성능 개선과 Android 앱 출시'
     - '기존 파이썬 서버에서 node.js, GraphQL, RethinkDB 으로 마이그레이션'
     - '관리자 사이트 개발 및 빌드/배포'
     - 'textract을 이용한 문서 파일 글자수 계산 serverless function 개발'
     - '개발 의존성 라이브러리 버전 관리'
+    - 'Cron CLI 프로그램 개발'
   location: "Seoul"
   startedAt: 2014-12-18
   url: "https://ediket.com/"
@@ -36,6 +37,7 @@
     - 'Apollo 도입'
     - '커밋시 linter, prettier 실행할 수 있는 lint-staged 도입'
     - '관리자 사이트 개발 및 빌드'
+    - '앱 애니메이션 적용'
   location: "Seoul"
   startedAt: 2019-02-07
   url: "https://play.google.com/store/apps/details?id=com.blackLabel.blackLabelApp"
@@ -65,6 +67,21 @@
   order: 2
   role: 'Attendees'
 
+- title: "Ediket App"
+  category: "work"
+  desc: "에디켓 안드로이드 어플리케이션 출시"
+  location: "Seoul"
+  startedAt: 2018-04-13
+  url: "https://play.google.com/store/apps/details?id=com.ediket.android"
+  appStore:
+  playStore: "https://play.google.com/store/apps/details?id=com.ediket.android"
+  pinned: false
+  type: "launch_app"
+  photo:
+  photoWidth:
+  photoHeight:
+  order:
+  role: 'Attendees'
 
 - title: "Apitii"
   title_detail: "next.js・Prisma・Apollo"
@@ -72,7 +89,8 @@
   desc: "레시피 공유 플랫폼 사이트."
   result:
     - 'Redux, Firebase 도입'
-    - 'Prisma, Next.js, Typescript, Apollo client, Graphql Yoga 으로 마이그레이션'
+    - 'Next.js, Typescript, Apollo client, Graphql Yoga, GraphQL Code Generator, Now 도입'
+    - 'Prisma, Google Compute Engine, App Engine, Cloud SQL, Cloud DNS, Cloud Storage 도입'
     - 'SEO 개선'
   location: "Seoul"
   startedAt: 2018-11-04

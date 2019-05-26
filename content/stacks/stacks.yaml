@@ -548,7 +548,7 @@
   logo: "./logos/aws-route53.svg"
   learnedAt:
   endedAt: ""
-  desc: "맨 앞에 있는놈, cloudfront에 보내거나 load balancer에 연결할 떄 사용하였습니다."
+  desc: "cloudfront에 보내거나 load balancer에 연결할 떄 사용하였습니다."
   type: "dabbledWith"
 
 - name: "Amazon Elastic Container Registry"

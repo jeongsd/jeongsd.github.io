@@ -14,7 +14,7 @@ const Item = styled.div`
   display: flex;
   flex-direction: column;
 `
-const Desc = styled.div`
+const Result = styled.p`
   flex-grow: 1;
 `
 const Ul = styled.ul`
@@ -37,7 +37,7 @@ const PinnedExperienceList: React.SFC = () => {
                 {node.title}
               </span>
             </a>
-            <p className="text-gray text-small d-block mt-2 mb-3">
+            <Result className="text-gray text-small d-block mt-2 mb-3">
               {node.desc}
               <Ul>
                 {(node.result || []).map(result => (
@@ -46,7 +46,7 @@ const PinnedExperienceList: React.SFC = () => {
                   </li>
                 ))}
               </Ul>
-            </p>
+            </Result>
             <div className="d-flex flex-row flex-justify-start">
               <div className="mr-3">
                 <Octicon className="ml-1 mr-2" icon={Person}/>
